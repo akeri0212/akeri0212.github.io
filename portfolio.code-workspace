@@ -15,6 +15,7 @@
 			"configFile": "_dev/.eslintrc.json"
 		},
 		"javascript.format.enable": false,
-		"scss.validate": false
+		"scss.validate": false,
+		"html.format.enable": false
 	}
 }
