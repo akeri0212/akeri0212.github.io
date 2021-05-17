@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+// ============================================================
+// 変数定義
+// ============================================================
+
+// 幅
+// --------------------------------------------------
+$cont-padding-pc : 20px;		// メインコンテンツの左右パディング（PC）
+$cont-padding-sp : 10px;		// メインコンテンツの左右パディング（SP）
+$cont-width-max: 982px;	// コンテンツ最大幅
+$break-point-01: 768px;		// ブレイクポイント
+
+// 色
+// --------------------------------------------------
+$base-txt-color: #000; // テキスト色
+$main-color-01: #0080e2; // メイン色 01
+$main-color-02: #0ce5ff; // メイン色 02
+// $sub-color-01:; // サブ色 01
+// $accent-color-01:; // アクセント色 01
+// $gray-color-01:#666; // グレー色 01
+
+// デフォルトフォントサイズと行の高さ
+// --------------------------------------------------
+$base-font-size-pc: 1.6rem; // 16px
+$base-font-size-sp: 1.4rem; // 14px
+$base-line-height: 2;
+$part-line-height: 1.8;
+// $base-margin-bottom:;
+// $part-margin-bottom:;
+
+// $base-font-family: 'Noto Sans JP', sans-serif;
+// $caveat-font-family: 'Caveat', cursive;
+
+// メディアクエリ
+// -----------------------------------------------
+$media-wide: '(min-width:#{$cont-width-max + $cont-padding-pc * 2 + 1px})'; // PC最大値以上
+$media-pc-max: '(min-width:#{$break-point-01 + 1px}) and (max-width:#{$cont-width-max + $cont-padding-pc * 2})'; // ブレイクポイント ～ PC最大値
+$media-pc: '(min-width:#{$break-point-01 + 1px})'; // ブレイクポイント以上
+$media-sp: '(max-width:#{$break-point-01})'; // ブレイクポイント以下

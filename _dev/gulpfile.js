@@ -18,7 +18,7 @@ const plugins = require('gulp-load-plugins')();
  */
 
 const dir = {
-    root: '../htdocs/',
+    root: '../docs/',
     sass: 'scss',
 };
 
@@ -27,7 +27,7 @@ const config = {
         sass: dir.sass + '/'
     },
     pathProd: {
-        css: dir.root
+        css: 'css'
     },
     project: {
         lfCode: 'LF',
@@ -38,7 +38,6 @@ const config = {
 
 // sassタスク
 gulp.task('sass', () => {
-    console.log('sass');
     return gulp.src(config.pathDev.sass + '/*.scss')
     .pipe(plugins.sass())
     .pipe(plugins.stylelint({
@@ -58,11 +57,10 @@ gulp.task('sass', () => {
         to: config.project.character
     }))
     // .pipe(plugins.header('@charset "UTF-8";\n\n'))
-    .pipe(gulp.dest(dir.root));
+    .pipe(gulp.dest(dir.root + config.pathProd.css));
 });
 
 gulp.task('watch', () => {
-    console.log(dir.sass + '/*.scss');
     gulp.watch(dir.sass + '/*.scss', gulp.task('sass'));
 });
 

@@ -1,0 +1,265 @@
+/* ==================================================
+*   01. Base
+*       01-01. Reset
+*       01-02. Default
+*   02. Modules
+*   02-01. Support
+*   02-02. Basic Modules
+*       02-02-01. Text
+*       02-02-02. Heading
+*       02-02-03. List
+*       02-02-04. Link
+*       02-02-05. Button
+*       02-02-06. Box
+*       02-02-07. Table
+*       02-02-08. Index
+*       02-02-09. Banner
+*       02-02-10. Image
+*       02-02-11. Form
+*       02-02-12. Layout
+*       02-02-13. JavaScript
+*       02-02-14. Unique
+*   02-03. Column adjustment
+*   02-04. Margin Bottom Management
+*   03. Frame
+*   03-01. Structure
+*       03-01-01. Header
+*       03-01-02. Navigation
+*       03-01-03. Main
+*       03-01-04. Footer
+*   03-02. Area
+*   03-03. Section
+*   04. Z-Index
+*================================================== */
+
+/* ==================================================
+    01. Base
+================================================== */
+
+/* --------------------------------------------------
+    01-01. Reset
+-------------------------------------------------- */
+html {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  margin-bottom: 0;
+}
+
+a {
+  border-width: 0;
+  text-decoration: none;
+}
+
+img {
+  border-width: 0;
+}
+
+address {
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* --------------------------------------------------
+    01-02. Default
+-------------------------------------------------- */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: #000;
+  overflow-wrap: break-word;
+  position: relative;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+@media (min-width: 769px) {
+  body {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1.4rem;
+  }
+}
+
+header,
+footer,
+main,
+nav,
+section,
+article,
+aside,
+figure {
+  display: block;
+}
+
+iframe {
+  border-width: 0;
+  max-width: 100%;
+}
+
+* > h1:first-child,
+* > h2:first-child,
+* > h3:first-child,
+* > h4:first-child,
+* > h5:first-child,
+* > h6:first-child {
+  margin-top: 0;
+}
+
+li,
+dt,
+dd {
+  margin-top: 3px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+th > *:first-child,
+td > *:first-child {
+  margin-top: 0;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+a[href],
+button {
+  color: #0080e2;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+a[href] img,
+button img {
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+a[href]:hover,
+button:hover {
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+a[href]:hover img,
+button:hover img {
+  opacity: 0.5;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em,
+b {
+  font-style: normal;
+  font-weight: 600;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+input[type='submit'] {
+  -webkit-appearance: none;
+  border-radius: 0;
+  border-width: 0;
+  cursor: pointer;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+input[type='submit']:hover {
+  opacity: 0.5;
+}
+
+button {
+  border-width: 0;
+  cursor: pointer;
+  font-size: inherit;
+}
+
+button[disabled] {
+  cursor: default;
+}
+
+/* ==================================================
+    03. Frame
+================================================== */
+
+/* --------------------------------------------------
+    03-01. Structure
+-------------------------------------------------- */
+.str-inner {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 90px auto 0;
+  max-width: 982px;
+  width: 100%;
+}
+
+@media (min-width: 769px) {
+  .str-inner {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .str-inner {
+    padding: 0 10px;
+  }
+}
+
+* > .str-inner:first-child {
+  margin-top: 0;
+}
+
+/* 03-01-01. Header
+--------------------------------------------- */
+
+/* 03-01-02. Navigation
+--------------------------------------------- */
+
+/* 03-01-03. Main
+--------------------------------------------- */
+#main-header {
+  background-image: linear-gradient(20deg, #0080e2, #0ce5ff);
+  color: #fff;
+  font-size: 5rem;
+  min-height: 400px;
+}
+
+/* 03-01-03. Footer
+--------------------------------------------- */
+
+/* --------------------------------------------------
+    03-02. Area
+-------------------------------------------------- */
+
+/* --------------------------------------------------
+    03-03. Section
+-------------------------------------------------- */
