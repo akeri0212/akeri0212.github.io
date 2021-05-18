@@ -49,6 +49,8 @@ body {
 }
 
 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   margin-bottom: 0;
 }
 
@@ -74,7 +76,7 @@ html {
 }
 
 body {
-  color: #000;
+  color: #333;
   overflow-wrap: break-word;
   position: relative;
   -webkit-text-size-adjust: 100%;
@@ -218,7 +220,7 @@ button[disabled] {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   margin: 90px auto 0;
-  max-width: 982px;
+  max-width: 1200px;
   width: 100%;
 }
 
@@ -249,8 +251,21 @@ button[disabled] {
 #main-header {
   background-image: linear-gradient(20deg, #0080e2, #0ce5ff);
   color: #fff;
-  font-size: 5rem;
-  min-height: 400px;
+}
+
+#main-header-01 {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 500px;
+  padding: 20px 0;
+}
+
+#main-header-hdg {
+  font-size: 8rem;
 }
 
 /* 03-01-03. Footer
@@ -263,3 +278,19 @@ button[disabled] {
 /* --------------------------------------------------
     03-03. Section
 -------------------------------------------------- */
+
+/* ==================================================
+    03. Modules
+================================================== */
+
+/* --------------------------------------------------
+    Heading
+-------------------------------------------------- */
+.hdg-02-inner {
+  background: linear-gradient(20deg, #0080e2, #0ce5ff);
+  -webkit-background-clip: text;
+  color: #0080e2;
+  display: inline-block;
+  font-size: 5rem;
+  -webkit-text-fill-color: transparent;
+}

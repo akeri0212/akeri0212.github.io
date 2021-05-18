@@ -44,8 +44,17 @@
 #main-header {
   background-image: linear-gradient(20deg, $main-color-01, $main-color-02);
   color: #fff;
-  font-size: 5rem;
-  min-height: 400px;
+}
+
+#main-header-01 {
+  align-items: center;
+  display: flex;
+  min-height: 500px;
+  padding: 20px 0;
+}
+
+#main-header-hdg {
+  font-size: 8rem;
 }
 
 /* 03-01-03. Footer

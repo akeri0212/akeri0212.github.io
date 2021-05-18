@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/* ==================================================
+    03. Modules
+================================================== */
+
+/* --------------------------------------------------
+    Heading
+-------------------------------------------------- */
+.mod-hdg-l2 {
+}
+
+.hdg-02-inner {
+  background: linear-gradient(20deg, $main-color-01, $main-color-02);
+  -webkit-background-clip: text;
+  color: $main-color-01;
+  display: inline-block;
+  font-size: 5rem;
+  -webkit-text-fill-color: transparent;
+}
