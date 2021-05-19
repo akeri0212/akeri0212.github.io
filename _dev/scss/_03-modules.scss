@@ -8,13 +8,20 @@
     Heading
 -------------------------------------------------- */
 .mod-hdg-l2 {
+  text-align: center;
 }
 
 .hdg-02-inner {
   background: linear-gradient(20deg, $main-color-01, $main-color-02);
-  -webkit-background-clip: text;
-  color: $main-color-01;
+  background-clip: text;
+  color: transparent;
   display: inline-block;
   font-size: 5rem;
-  -webkit-text-fill-color: transparent;
+
+  &::before,
+  &::after {
+    color: rgba(#fff, 0.3);
+    content: '●●●';
+    font-size: 0.7em;
+  }
 }

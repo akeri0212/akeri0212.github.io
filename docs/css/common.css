@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* ==================================================
 *   01. Base
 *       01-01. Reset
@@ -286,11 +288,22 @@ button[disabled] {
 /* --------------------------------------------------
     Heading
 -------------------------------------------------- */
+.mod-hdg-l2 {
+  text-align: center;
+}
+
 .hdg-02-inner {
   background: linear-gradient(20deg, #0080e2, #0ce5ff);
   -webkit-background-clip: text;
-  color: #0080e2;
+  background-clip: text;
+  color: transparent;
   display: inline-block;
   font-size: 5rem;
-  -webkit-text-fill-color: transparent;
+}
+
+.hdg-02-inner::before,
+.hdg-02-inner::after {
+  color: rgba(255, 255, 255, 0.3);
+  content: '●●●';
+  font-size: 0.7em;
 }
