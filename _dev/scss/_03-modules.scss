@@ -7,6 +7,9 @@
 /* --------------------------------------------------
     Heading
 -------------------------------------------------- */
+
+/* .mod-hdg-l2
+--------------------------------------------- */
 .mod-hdg-l2 {
   text-align: center;
 }
@@ -24,4 +27,65 @@
     content: '●●●';
     font-size: 0.7em;
   }
+}
+
+/* --------------------------------------------------
+    List
+-------------------------------------------------- */
+
+/* .mod-list-history
+--------------------------------------------- */
+$list-history-ttl-fs: 2.8rem;
+
+.mod-list-history {
+  list-style: none;
+  margin-left: 30px;
+  padding-left: 0;
+  position: relative;
+
+  &::before {
+    border-left: 5px dotted rgba($main-color-01, 0.5);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: $list-history-ttl-fs;
+    width: 30px;
+  }
+
+  > li {
+    margin-top: 50px;
+    padding-left: 50px;
+    position: relative;
+
+    &::before {
+      background-color: $main-color-01;
+      border-radius: 50%;
+      content: '';
+      height: 15px;
+      left: 0;
+      margin-left: -5px;
+      position: absolute;
+      top: calc(#{$list-history-ttl-fs} - 7px);
+      width: 15px;
+    }
+  }
+}
+
+.list-history-ttl {
+  color: $main-color-01;
+  display: block;
+  font-size: $list-history-ttl-fs;
+}
+
+.list-history-cont {
+  display: flex;
+  margin-top: 20px;
+}
+
+.list-history-img {
+  border-radius: 50%;
+  height: 200px;
+  object-fit: cover;
+  width: 200px;
 }

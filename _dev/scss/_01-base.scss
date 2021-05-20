@@ -45,12 +45,12 @@ html {
 
 body {
   color: $base-txt-color;
+  line-height: $base-line-height;
   overflow-wrap: break-word; // Fx 用
   position: relative;
   text-size-adjust: 100%;
   word-break: break-word;
   word-wrap: break-word; // IE 用
-  // line-height: $base-line-height;
 
   @media #{$media-pc} {
     font-size: $base-font-size-pc; // 16px

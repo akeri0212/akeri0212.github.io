@@ -79,6 +79,7 @@ html {
 
 body {
   color: #333;
+  line-height: 2;
   overflow-wrap: break-word;
   position: relative;
   -webkit-text-size-adjust: 100%;
@@ -288,6 +289,9 @@ button[disabled] {
 /* --------------------------------------------------
     Heading
 -------------------------------------------------- */
+
+/* .mod-hdg-l2
+--------------------------------------------- */
 .mod-hdg-l2 {
   text-align: center;
 }
@@ -306,4 +310,66 @@ button[disabled] {
   color: rgba(255, 255, 255, 0.3);
   content: '●●●';
   font-size: 0.7em;
+}
+
+/* --------------------------------------------------
+    List
+-------------------------------------------------- */
+
+/* .mod-list-history
+--------------------------------------------- */
+.mod-list-history {
+  list-style: none;
+  margin-left: 30px;
+  padding-left: 0;
+  position: relative;
+}
+
+.mod-list-history::before {
+  border-left: 5px dotted rgba(0, 128, 226, 0.5);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 2.8rem;
+  width: 30px;
+}
+
+.mod-list-history > li {
+  margin-top: 50px;
+  padding-left: 50px;
+  position: relative;
+}
+
+.mod-list-history > li::before {
+  background-color: #0080e2;
+  border-radius: 50%;
+  content: '';
+  height: 15px;
+  left: 0;
+  margin-left: -5px;
+  position: absolute;
+  top: calc(2.8rem - 7px);
+  width: 15px;
+}
+
+.list-history-ttl {
+  color: #0080e2;
+  display: block;
+  font-size: 2.8rem;
+}
+
+.list-history-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 20px;
+}
+
+.list-history-img {
+  border-radius: 50%;
+  height: 200px;
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 200px;
 }
