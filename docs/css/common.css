@@ -252,7 +252,7 @@ button[disabled] {
 /* 03-01-03. Main
 --------------------------------------------- */
 #main-header {
-  background-image: linear-gradient(20deg, #0080e2, #0ce5ff);
+  background-image: linear-gradient(110deg, #0080e2, #0ce5ff);
   color: #fff;
 }
 
@@ -372,4 +372,72 @@ button[disabled] {
   -o-object-fit: cover;
   object-fit: cover;
   width: 200px;
+}
+
+/* --------------------------------------------------
+    Layout
+-------------------------------------------------- */
+
+/* .mod-lyt-skill
+--------------------------------------------- */
+.mod-lyt-skill {
+  height: 1000px;
+  position: relative;
+}
+
+.lyt-skill-list-01 {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lyt-skill-list-01-item {
+  background-color: rgba(0, 128, 226, 0.3);
+  border-radius: 50%;
+  padding-bottom: 40%;
+  padding-left: 0;
+  position: absolute;
+  width: 40%;
+}
+
+.lyt-skill-list-01-item._frontend {
+  left: 30%;
+  top: 0;
+}
+
+.lyt-skill-list-01-item._design {
+  left: 0;
+  top: 50%;
+}
+
+.lyt-skill-list-01-item._backend {
+  right: 0;
+  top: 50%;
+}
+
+.lyt-skill-list-02 {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lyt-skill-list-02-item {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  border: 5px solid #0080e2;
+  border-radius: 50%;
+  color: #0080e2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  height: 7em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1.3;
+  padding-left: 0;
+  text-align: center;
+  width: 7em;
 }
