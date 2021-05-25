@@ -34,6 +34,13 @@
 *   04. Z-Index
 *================================================== */
 
+/**
+ * 値から数値を返す（10px => 10）
+ * @param {string} $value - 「数値＋単位」文字列
+ * @return {number} - 単位を削除した数値
+ * @link https://www.nxworld.net/sass-number-operations-and-functions.html
+ */
+
 /* ==================================================
     01. Base
 ================================================== */
@@ -220,8 +227,8 @@ button[disabled] {
     03-01. Structure
 -------------------------------------------------- */
 .str-inner {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   margin: 90px auto 0;
   max-width: 1200px;
   width: 100%;
@@ -393,25 +400,66 @@ button[disabled] {
 .lyt-skill-list-01-item {
   background-color: rgba(0, 128, 226, 0.3);
   border-radius: 50%;
-  padding-bottom: 40%;
   padding-left: 0;
   position: absolute;
-  width: 40%;
+}
+
+@media (min-width: 769px) {
+  .lyt-skill-list-01-item {
+    height: calc((100vw - 20px * 2 - 1.66667vw) / 2);
+    width: calc((100vw - 20px * 2 - 1.66667vw) / 2);
+  }
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-01-item {
+    height: 590px;
+    width: 590px;
+  }
 }
 
 .lyt-skill-list-01-item._frontend {
-  left: 30%;
+  left: 0;
+  top: 0;
+}
+
+.lyt-skill-list-01-item._backend {
+  right: 0;
   top: 0;
 }
 
 .lyt-skill-list-01-item._design {
   left: 0;
-  top: 50%;
 }
 
-.lyt-skill-list-01-item._backend {
+@media (min-width: 769px) {
+  .lyt-skill-list-01-item._design {
+    top: calc((100vw - 20px * 2 - 1.66667vw) / 2 + 20px);
+  }
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-01-item._design {
+    left: 0;
+    top: 610px;
+  }
+}
+
+.lyt-skill-list-01-item._others {
   right: 0;
-  top: 50%;
+}
+
+@media (min-width: 769px) {
+  .lyt-skill-list-01-item._others {
+    top: calc((100vw - 20px * 2 - 1.66667vw) / 2 + 20px);
+  }
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-01-item._others {
+    right: 0;
+    top: 610px;
+  }
 }
 
 .lyt-skill-list-02 {
@@ -430,7 +478,7 @@ button[disabled] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 2rem;
+  font-size: 1.16667vw;
   font-weight: bold;
   height: 7em;
   -webkit-box-pack: center;
@@ -438,6 +486,122 @@ button[disabled] {
   justify-content: center;
   line-height: 1.3;
   padding-left: 0;
+  position: absolute;
   text-align: center;
+  text-shadow: 2px  2px 1px #fff, -2px  2px 1px #fff, 2px -2px 1px #fff, -2px -2px 1px #fff, 2px  0 1px #fff, 0  2px 1px #fff, -2px  0 1px #fff, 0 -2px 1px #fff;
   width: 7em;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item {
+    font-size: 1.4rem;
+  }
+}
+
+.lyt-skill-list-02-item._html {
+  font-size: 3.5vw;
+  left: 0;
+  top: 5vw;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._html {
+    left: 0;
+    top: 30px;
+  }
+}
+
+.lyt-skill-list-02-item._css {
+  font-size: 3.5vw;
+  left: 24vw;
+  top: 5vw;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._css {
+    left: 300px;
+    top: 30px;
+  }
+}
+
+.lyt-skill-list-02-item._js {
+  font-size: 2.8vw;
+  left: 14.7vw;
+  top: 27vw;
+}
+
+.lyt-skill-list-02-item._react {
+  left: 20vw;
+  top: 27vw;
+}
+
+.lyt-skill-list-02-item._gulp {
+  font-size: 2.1vw;
+  right: 30%;
+  top: 5vw;
+}
+
+.lyt-skill-list-02-item._svn {
+  font-size: 2.1vw;
+  right: 30%;
+  top: 20vw;
+}
+
+.lyt-skill-list-02-item._git {
+  font-size: 2.1vw;
+  left: 40vw;
+  top: 21em;
+}
+
+.lyt-skill-list-02-item._php {
+  font-size: 2.1vw;
+  right: 14em;
+  top: 28em;
+}
+
+.lyt-skill-list-02-item._mysql {
+  font-size: 1.51667vw;
+  right: 0;
+  top: 28em;
+}
+
+.lyt-skill-list-02-item._phpmyadmin {
+  font-size: 1.51667vw;
+  right: 14em;
+  top: 35em;
+}
+
+.lyt-skill-list-02-item._composer {
+  font-size: 1.51667vw;
+  right: 0;
+  top: 35em;
+}
+
+.lyt-skill-list-02-item._docker {
+  right: 10em;
+  top: 35em;
+}
+
+.lyt-skill-list-02-item._ps {
+  font-size: 2.8vw;
+  left: 0;
+  top: 28em;
+}
+
+.lyt-skill-list-02-item._ai {
+  font-size: 2.8vw;
+  left: 14em;
+  top: 28em;
+}
+
+.lyt-skill-list-02-item._management {
+  font-size: 2.1vw;
+  right: 0;
+  top: 28em;
+}
+
+.lyt-skill-list-02-item._improvement {
+  font-size: 2.1vw;
+  right: 10vw;
+  top: 28em;
 }

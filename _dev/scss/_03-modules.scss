@@ -90,10 +90,13 @@ $list-history-ttl-fs: 2.8rem;
   width: 200px;
 }
 
-
 /* --------------------------------------------------
     Layout
 -------------------------------------------------- */
+$lyt-skill-list-space: return-num($cont-padding-pc) / return-num($cont-width-max) * 100vw;
+$lyt-skill-list-02-item-base-font-size: 14 / return-num($cont-width-max) * 100vw; // 画面幅1200pxの時のデフォルトフォントサイズ
+$lyt-skill-list-02-item-size: 7em;
+// $lyt-skill-list-02-item-scale: 1.5;
 
 /* .mod-lyt-skill
 --------------------------------------------- */
@@ -111,24 +114,54 @@ $list-history-ttl-fs: 2.8rem;
   background-color: rgba($main-color-01, 0.3);
   // border: rgba($main-color-01, 0.3) 5px solid;
   border-radius: 50%;
-  padding-bottom: 40%;
   padding-left: 0;
   position: absolute;
-  width: 40%;
+  // width: calc((100vw - #{$cont-padding-pc} * 3) / 2);
+
+  @media #{$media-pc} {
+    height: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2);
+    width: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2);
+  }
+
+  @media #{$media-wide} {
+    height: ($cont-width-max - $cont-padding-pc) / 2;
+    width: ($cont-width-max - $cont-padding-pc) / 2;
+  }
 
   &._frontend {
-    left: 30%;
+    left: 0;
+    top: 0;
+  }
+
+  &._backend {
+    right: 0;
     top: 0;
   }
 
   &._design {
     left: 0;
-    top: 50%;
+
+    @media #{$media-pc} {
+      top: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2 + #{$cont-padding-pc});
+    }
+
+    @media #{$media-wide} {
+      left: 0;
+      top: ($cont-width-max - $cont-padding-pc) / 2 + $cont-padding-pc;
+    }
   }
 
-  &._backend {
+  &._others {
     right: 0;
-    top: 50%;
+
+    @media #{$media-pc} {
+      top: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2 + #{$cont-padding-pc});
+    }
+
+    @media #{$media-wide} {
+      right: 0;
+      top: ($cont-width-max - $cont-padding-pc) / 2 + $cont-padding-pc;
+    }
   }
 }
 
@@ -147,14 +180,132 @@ $list-history-ttl-fs: 2.8rem;
   // position: relative;
   color: $main-color-01;
   display: flex;
-  font-size: 2rem;
+  font-size: $lyt-skill-list-02-item-base-font-size;
   font-weight: bold;
-  height: 7em;
+  height: $lyt-skill-list-02-item-size;
   justify-content: center;
   line-height: 1.3;
   padding-left: 0;
+  position: absolute;
   text-align: center;
-  width: 7em;
+  text-shadow:
+    2px  2px 1px #fff,
+    -2px  2px 1px #fff,
+    2px -2px 1px #fff,
+    -2px -2px 1px #fff,
+    2px  0 1px #fff,
+    0  2px 1px #fff,
+    -2px  0 1px #fff,
+    0 -2px 1px #fff;
+  width: $lyt-skill-list-02-item-size;
+
+  @media #{$media-wide} {
+    font-size: 1.4rem;
+  }
+
+  &._html {
+    font-size: $lyt-skill-list-02-item-base-font-size * 3;
+    left: 0;
+    top: 5vw;
+
+    @media #{$media-wide} {
+      left: 0;
+      top: 30px;
+    }
+  }
+
+  &._css {
+    font-size: $lyt-skill-list-02-item-base-font-size * 3;
+    left: 24vw;
+    top: 5vw;
+
+    @media #{$media-wide} {
+      left: 300px;
+      top: 30px;
+    }
+  }
+
+  &._js {
+    font-size: $lyt-skill-list-02-item-base-font-size * 2.4;
+    left: 14.7vw;
+    top: 27vw;
+  }
+
+  &._react {
+    left: 20vw;
+    top: 27vw;
+  }
+
+  &._gulp {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.8;
+    right: 30%;
+    top: 5vw;
+  }
+
+  &._svn {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.8;
+    right: 30%;
+    top: 20vw;
+  }
+
+  &._git {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.8;
+    left: 40vw;
+    top: 21em;
+  }
+
+  &._php {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.8;
+    right: 14em;
+    top: 28em;
+  }
+
+  &._mysql {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.3;
+    right: 0;
+    top: 28em;
+  }
+
+  &._phpmyadmin {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.3;
+    right: 14em;
+    top: 35em;
+  }
+
+  &._composer {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.3;
+    right: 0;
+    top: 35em;
+  }
+
+  &._docker {
+    right: 10em;
+    top: 35em;
+  }
+
+  &._ps {
+    font-size: $lyt-skill-list-02-item-base-font-size * 2.4;
+    left: 0;
+    top: 28em;
+  }
+
+  &._ai {
+    font-size: $lyt-skill-list-02-item-base-font-size * 2.4;
+    left: 14em;
+    top: 28em;
+  }
+
+  &._management {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.8;
+    right: 0;
+    top: 28em;
+  }
+
+  &._improvement {
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.8;
+    right: 10vw;
+    top: 28em;
+  }
 }
 
 // .lyt-skill-list-02-item-inner {

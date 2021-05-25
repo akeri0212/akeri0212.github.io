@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+// ============================================================
+// Function 定義
+// ============================================================
+
+/**
+ * 値から数値を返す（10px => 10）
+ * @param {string} $value - 「数値＋単位」文字列
+ * @return {number} - 単位を削除した数値
+ * @link https://www.nxworld.net/sass-number-operations-and-functions.html
+ */
+@function return-num ($value) {
+  @if type-of($value) == 'number' and not unitless($value) {
+    @return $value / ($value * 0 + 1);
+  }
+
+  @return $value;
+}
