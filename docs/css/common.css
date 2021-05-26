@@ -423,9 +423,24 @@ button[disabled] {
   top: 0;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-01-item._frontend {
+    height: 700px;
+    width: 700px;
+  }
+}
+
 .lyt-skill-list-01-item._backend {
   right: 0;
-  top: 0;
+  top: 160px;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-01-item._backend {
+    height: 570px;
+    top: 60px;
+    width: 570px;
+  }
 }
 
 .lyt-skill-list-01-item._design {
@@ -440,8 +455,10 @@ button[disabled] {
 
 @media (min-width: 1241px) {
   .lyt-skill-list-01-item._design {
-    left: 0;
-    top: 610px;
+    height: 550px;
+    left: 58px;
+    top: 520px;
+    width: 550px;
   }
 }
 
@@ -457,8 +474,10 @@ button[disabled] {
 
 @media (min-width: 1241px) {
   .lyt-skill-list-01-item._others {
-    right: 0;
-    top: 610px;
+    height: 410px;
+    left: 633px;
+    top: 650px;
+    width: 410px;
   }
 }
 
@@ -499,7 +518,7 @@ button[disabled] {
 }
 
 .lyt-skill-list-02-item._html {
-  font-size: 3.5vw;
+  font-size: 2.91667vw;
   left: 0;
   top: 5vw;
 }
@@ -507,12 +526,12 @@ button[disabled] {
 @media (min-width: 1241px) {
   .lyt-skill-list-02-item._html {
     left: 0;
-    top: 30px;
+    top: 20px;
   }
 }
 
 .lyt-skill-list-02-item._css {
-  font-size: 3.5vw;
+  font-size: 2.91667vw;
   left: 24vw;
   top: 5vw;
 }
@@ -520,14 +539,21 @@ button[disabled] {
 @media (min-width: 1241px) {
   .lyt-skill-list-02-item._css {
     left: 300px;
-    top: 30px;
+    top: 20px;
   }
 }
 
 .lyt-skill-list-02-item._js {
-  font-size: 2.8vw;
+  font-size: 2.45vw;
   left: 14.7vw;
   top: 27vw;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._js {
+    left: 20px;
+    top: 318px;
+  }
 }
 
 .lyt-skill-list-02-item._react {
@@ -535,28 +561,63 @@ button[disabled] {
   top: 27vw;
 }
 
-.lyt-skill-list-02-item._gulp {
-  font-size: 2.1vw;
-  right: 30%;
-  top: 5vw;
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._react {
+    left: 240px;
+    top: 267px;
+  }
 }
 
-.lyt-skill-list-02-item._svn {
-  font-size: 2.1vw;
-  right: 30%;
-  top: 20vw;
+.lyt-skill-list-02-item._a11y {
+  font-size: 2.45vw;
+  left: 20vw;
+  top: 27vw;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._a11y {
+    left: 210px;
+    top: 493px;
+  }
+}
+
+.lyt-skill-list-02-item._gulp {
+  font-size: 1.98333vw;
+  left: 355px;
+  top: 319px;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._gulp {
+    left: 359px;
+    top: 319px;
+  }
 }
 
 .lyt-skill-list-02-item._git {
-  font-size: 2.1vw;
+  font-size: 1.98333vw;
   left: 40vw;
   top: 21em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._git {
+    left: 566px;
+    top: 250px;
+  }
+}
+
 .lyt-skill-list-02-item._php {
-  font-size: 2.1vw;
+  font-size: 1.98333vw;
   right: 14em;
   top: 28em;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._php {
+    left: 740px;
+    top: 140px;
+  }
 }
 
 .lyt-skill-list-02-item._mysql {
@@ -565,10 +626,24 @@ button[disabled] {
   top: 28em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._mysql {
+    left: 970px;
+    top: 160px;
+  }
+}
+
 .lyt-skill-list-02-item._phpmyadmin {
   font-size: 1.51667vw;
   right: 14em;
   top: 35em;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._phpmyadmin {
+    left: 988px;
+    top: 320px;
+  }
 }
 
 .lyt-skill-list-02-item._composer {
@@ -577,31 +652,73 @@ button[disabled] {
   top: 35em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._composer {
+    left: 820px;
+    top: 340px;
+  }
+}
+
 .lyt-skill-list-02-item._docker {
   right: 10em;
   top: 35em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._docker {
+    left: 740px;
+    top: 470px;
+  }
+}
+
 .lyt-skill-list-02-item._ps {
-  font-size: 2.8vw;
+  font-size: 2.45vw;
   left: 0;
   top: 28em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._ps {
+    left: 84px;
+    top: 757px;
+  }
+}
+
 .lyt-skill-list-02-item._ai {
-  font-size: 2.8vw;
+  font-size: 2.45vw;
   left: 14em;
   top: 28em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._ai {
+    left: 337px;
+    top: 757px;
+  }
+}
+
 .lyt-skill-list-02-item._management {
-  font-size: 2.1vw;
+  font-size: 1.98333vw;
   right: 0;
   top: 28em;
 }
 
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._management {
+    left: 700px;
+    top: 787px;
+  }
+}
+
 .lyt-skill-list-02-item._improvement {
-  font-size: 2.1vw;
+  font-size: 1.98333vw;
   right: 10vw;
   top: 28em;
+}
+
+@media (min-width: 1241px) {
+  .lyt-skill-list-02-item._improvement {
+    left: 900px;
+    top: 787px;
+  }
 }
