@@ -705,8 +705,8 @@ button[disabled] {
 
 @media (min-width: 1241px) {
   .lyt-skill-list-02-item._management {
-    left: 700px;
-    top: 787px;
+    left: 641px;
+    top: 759px;
   }
 }
 
@@ -718,7 +718,7 @@ button[disabled] {
 
 @media (min-width: 1241px) {
   .lyt-skill-list-02-item._improvement {
-    left: 900px;
-    top: 787px;
+    left: 840px;
+    top: 759px;
   }
 }
