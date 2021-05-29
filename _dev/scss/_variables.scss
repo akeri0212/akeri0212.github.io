@@ -34,7 +34,7 @@ $part-line-height: 1.8;
 
 // メディアクエリ
 // -----------------------------------------------
-$media-wide: '(min-width:#{$cont-width-max + $cont-padding-pc * 2 + 1px})'; // PC最大値以上
-$media-pc-max: '(min-width:#{$break-point-01 + 1px}) and (max-width:#{$cont-width-max + $cont-padding-pc * 2})'; // ブレイクポイント ～ PC最大値
-$media-pc: '(min-width:#{$break-point-01 + 1px})'; // ブレイクポイント以上
-$media-sp: '(max-width:#{$break-point-01})'; // ブレイクポイント以下
+$media-wide: '(min-width: #{$cont-width-max + $cont-padding-pc * 2 + 1px})'; // PC最大値以上
+$media-pc-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{$cont-width-max + $cont-padding-pc * 2})'; // ブレイクポイント ～ PC最大値
+$media-pc: '(min-width: #{$break-point-01 + 1px})'; // ブレイクポイント以上
+$media-sp: '(max-width: #{$break-point-01})'; // ブレイクポイント以下

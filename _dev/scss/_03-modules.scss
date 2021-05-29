@@ -93,22 +93,35 @@ $list-history-ttl-fs: 2.8rem;
 /* --------------------------------------------------
     Layout
 -------------------------------------------------- */
-$lyt-skill-list-space: return-num($cont-padding-pc) / return-num($cont-width-max) * 100vw;
+$mod-lyt-skill-max-width: 910px;
+
+/**
+ * 最大値からwv値を返す
+ * @param {number} $value - 要素の最大px値（単位なし）
+ * @return {string} - vw値
+ */
+@function return-mod-lyt-skill-vw ($value) {
+  @return $value / return-num($mod-lyt-skill-max-width + $cont-padding-pc * 2) * 100vw;
+}
+
 $lyt-skill-list-02-item-base-font-size-wide: 1.4rem; // 画面幅1200pxの時のデフォルトフォントサイズ
-$lyt-skill-list-02-item-base-font-size: 14 / return-num($cont-width-max) * 100vw; // 14pxをベースに画面幅に合わせて可変
+// $lyt-skill-list-02-item-base-font-size: return-num($lyt-skill-list-02-item-base-font-size-wide) * 10 / return-num($mod-lyt-skill-max-width) * 100vw; // 14pxをベースに画面幅に合わせて可変
+$lyt-skill-list-02-item-base-font-size: return-mod-lyt-skill-vw(return-num($lyt-skill-list-02-item-base-font-size-wide * 10)); // 14pxをベースに画面幅に合わせて可変
 $lyt-skill-list-02-item-size: 7em;
-// $lyt-skill-list-02-item-scale: 1.5;
+$media-mod-lyt-skill-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
+$media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-padding-pc * 2 + 1px})'; // モジュール最大幅以上
+
 
 /* .mod-lyt-skill
 --------------------------------------------- */
 .mod-lyt-skill {
-  height: 1000px;
+  height: 916px;
+  margin: 0 auto;
+  max-width: $mod-lyt-skill-max-width;
   position: relative;
 
-  // @media (min-width: $cont-width-max - 290px + $cont-padding-pc * 2 + /1px) {
-  @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
-    margin: 0 auto;
-    width: 910px;
+  @media #{$media-mod-lyt-skill-max} {
+    height: return-mod-lyt-skill-vw(916);
   }
 }
 
@@ -119,27 +132,21 @@ $lyt-skill-list-02-item-size: 7em;
 
 .lyt-skill-list-01-item {
   background-color: rgba($main-color-01, 0.3);
-  // border: rgba($main-color-01, 0.3) 5px solid;
   border-radius: 50%;
+  margin-top: 0;
   padding-left: 0;
   position: absolute;
-  // width: calc((100vw - #{$cont-padding-pc} * 3) / 2);
-
-  @media #{$media-pc} {
-    height: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2);
-    width: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2);
-  }
-
-  @media (min-width: $cont-width-max - 290px + $cont-padding-pc * 2 + 1px) {
-    height: ($cont-width-max - $cont-padding-pc) / 2;
-    width: ($cont-width-max - $cont-padding-pc) / 2;
-  }
 
   &._frontend {
     left: 0;
     top: 0;
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-max} {
+      height: return-mod-lyt-skill-vw(580);
+      width: return-mod-lyt-skill-vw(580);
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
       height: 580px;
       left: 0;
       width: 580px;
@@ -150,7 +157,14 @@ $lyt-skill-list-02-item-size: 7em;
     right: 0;
     top: 160px;
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-max} {
+      height: return-mod-lyt-skill-vw(430);
+      left: return-mod-lyt-skill-vw(479);
+      top: return-mod-lyt-skill-vw(90);
+      width: return-mod-lyt-skill-vw(430);
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
       // right: 90px;
       height: 430px;
       left: 479px;
@@ -162,11 +176,14 @@ $lyt-skill-list-02-item-size: 7em;
   &._design {
     left: 0;
 
-    @media #{$media-pc} {
-      top: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2 + #{$cont-padding-pc});
+    @media #{$media-mod-lyt-skill-max} {
+      height: return-mod-lyt-skill-vw(450);
+      left: return-mod-lyt-skill-vw(18);
+      top: return-mod-lyt-skill-vw(450);
+      width: return-mod-lyt-skill-vw(450);
     }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       height: 450px;
       left: 18px;
       top: 450px;
@@ -177,11 +194,14 @@ $lyt-skill-list-02-item-size: 7em;
   &._others {
     right: 0;
 
-    @media #{$media-pc} {
-      top: calc((100vw - #{$cont-padding-pc} * 2 - #{$lyt-skill-list-space}) / 2 + #{$cont-padding-pc});
+    @media #{$media-mod-lyt-skill-max} {
+      height: return-mod-lyt-skill-vw(390);
+      left: return-mod-lyt-skill-vw(473);
+      top: return-mod-lyt-skill-vw(526);
+      width: return-mod-lyt-skill-vw(390);
     }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       height: 390px;
       left: 473px;
       top: 526px;
@@ -198,11 +218,8 @@ $lyt-skill-list-02-item-size: 7em;
 .lyt-skill-list-02-item {
   align-items: center;
   background-color: #fff;
-  // background-image: linear-gradient(110deg, $main-color-01, $main-color-02);
-  // background-color: rgba($main-color-01, 0.3);
   border: 5px solid $main-color-01;
   border-radius: 50%;
-  // position: relative;
   color: $main-color-01;
   display: flex;
   font-size: $lyt-skill-list-02-item-base-font-size;
@@ -224,16 +241,18 @@ $lyt-skill-list-02-item-size: 7em;
     0 -2px 1px #fff;
   width: $lyt-skill-list-02-item-size;
 
-  @media (min-width: $cont-width-max - 290px + $cont-padding-pc * 2 + 1px) {
+  @media #{$media-mod-lyt-skill-wide} {
     font-size: $lyt-skill-list-02-item-base-font-size-wide;
   }
 
   &._html {
-    font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
-    left: 0;
-    top: 5vw;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
+      left: return-mod-lyt-skill-vw(54);
+      top: return-mod-lyt-skill-vw(55);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 2.2;
       left: 54px;
       top: 55px;
@@ -241,11 +260,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._css {
-    font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
-    left: 24vw;
-    top: 5vw;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
+      left: return-mod-lyt-skill-vw(283);
+      top: return-mod-lyt-skill-vw(64);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 2.2;
       left: 283px;
       top: 64px;
@@ -253,11 +274,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._js {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    left: 14.7vw;
-    top: 27vw;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+      left: return-mod-lyt-skill-vw(36);
+      top: return-mod-lyt-skill-vw(277);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 36px;
       top: 277px;
@@ -266,23 +289,27 @@ $lyt-skill-list-02-item-size: 7em;
 
   &._react {
     height: $lyt-skill-list-02-item-size * 0.8;
-    left: 20vw;
-    top: 27vw;
     width: $lyt-skill-list-02-item-size * 0.8;
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide;
+    @media #{$media-mod-lyt-skill-max} {
+      left: return-mod-lyt-skill-vw(232);
+      top: return-mod-lyt-skill-vw(278);
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
       left: 232px;
       top: 278px;
     }
   }
 
   &._a11y {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    left: 20vw;
-    top: 27vw;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+      left: return-mod-lyt-skill-vw(160);
+      top: return-mod-lyt-skill-vw(423);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 160px;
       top: 423px;
@@ -290,11 +317,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._gulp {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
-    left: 3255px;
-    top: 319px;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
+      left: return-mod-lyt-skill-vw(325);
+      top: return-mod-lyt-skill-vw(322);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
       left: 325px;
       top: 322px;
@@ -302,11 +331,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._git {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
-    left: 40vw;
-    top: 21em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
+      left: return-mod-lyt-skill-vw(459);
+      top: return-mod-lyt-skill-vw(235);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
       left: 459px;
       top: 235px;
@@ -314,11 +345,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._php {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
-    right: 14em;
-    top: 28em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
+      left: return-mod-lyt-skill-vw(590);
+      top: return-mod-lyt-skill-vw(127);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
       left: 590px;
       top: 127px;
@@ -326,11 +359,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._mysql {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
-    right: 0;
-    top: 28em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
+      left: return-mod-lyt-skill-vw(759);
+      top: return-mod-lyt-skill-vw(175);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
       left: 759px;
       top: 175px;
@@ -338,11 +373,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._phpmyadmin {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
-    right: 14em;
-    top: 35em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
+      left: return-mod-lyt-skill-vw(759);
+      top: return-mod-lyt-skill-vw(295);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
       left: 759px;
       top: 295px;
@@ -350,11 +387,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._composer {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
-    right: 0;
-    top: 35em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
+      left: return-mod-lyt-skill-vw(627);
+      top: return-mod-lyt-skill-vw(293);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
       left: 627px;
       top: 293px;
@@ -363,23 +402,27 @@ $lyt-skill-list-02-item-size: 7em;
 
   &._docker {
     height: $lyt-skill-list-02-item-size * 0.8;
-    right: 10em;
-    top: 35em;
     width: $lyt-skill-list-02-item-size * 0.8;
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide;
+    @media #{$media-mod-lyt-skill-max} {
+      left: return-mod-lyt-skill-vw(610);
+      top: return-mod-lyt-skill-vw(420);
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
       left: 610px;
       top: 420px;
     }
   }
 
   &._ps {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    left: 0;
-    top: 28em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+      left: return-mod-lyt-skill-vw(50);
+      top: return-mod-lyt-skill-vw(617);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 50px;
       top: 617px;
@@ -387,11 +430,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._ai {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    left: 14em;
-    top: 28em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+      left: return-mod-lyt-skill-vw(251);
+      top: return-mod-lyt-skill-vw(617);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 251px;
       top: 617px;
@@ -399,11 +444,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._management {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    right: 0;
-    top: 28em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+      left: return-mod-lyt-skill-vw(477);
+      top: return-mod-lyt-skill-vw(617);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 477px;
       top: 617px;
@@ -411,11 +458,13 @@ $lyt-skill-list-02-item-size: 7em;
   }
 
   &._improvement {
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    right: 10vw;
-    top: 28em;
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+      left: return-mod-lyt-skill-vw(669);
+      top: return-mod-lyt-skill-vw(617);
+    }
 
-    @media (min-width: 910px + $cont-padding-pc * 2 + 1px) {
+    @media #{$media-mod-lyt-skill-wide} {
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 669px;
       top: 617px;
