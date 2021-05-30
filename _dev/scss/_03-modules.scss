@@ -11,7 +11,12 @@
 /* .mod-hdg-l2
 --------------------------------------------- */
 .mod-hdg-l2 {
+  margin-top: 60px;
   text-align: center;
+
+  + * {
+    margin-top: 30px;
+  }
 }
 
 .hdg-02-inner {
@@ -19,7 +24,7 @@
   background-clip: text;
   color: transparent;
   display: inline-block;
-  font-size: 5rem;
+  font-size: 7rem;
 
   &::before,
   &::after {
@@ -90,9 +95,67 @@ $list-history-ttl-fs: 2.8rem;
   width: 200px;
 }
 
+.list-history-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 30px;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+}
+
 /* --------------------------------------------------
     Layout
 -------------------------------------------------- */
+
+/* .mod-lyt-profile
+--------------------------------------------- */
+.mod-lyt-profile {
+  min-height: 280px;
+  padding-left: 330px;
+  position: relative;
+}
+
+.lyt-profile-ttl {
+  font-size: 2rem;
+}
+
+.lyt-profile-img {
+  border-radius: 50%;
+  height: 280px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.lyt-profile-list-01 {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lyt-profile-list-02 {
+  display: flex;
+  list-style: none;
+  margin-left: -15px;
+  padding-left: 0;
+
+  > li {
+    height: 50px;
+    margin-left: 15px;
+    width: 50px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+/* .mod-lyt-skill
+--------------------------------------------- */
 $mod-lyt-skill-max-width: 910px;
 
 /**
@@ -111,9 +174,6 @@ $lyt-skill-list-02-item-size: 7em;
 $media-mod-lyt-skill-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
 $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-padding-pc * 2 + 1px})'; // モジュール最大幅以上
 
-
-/* .mod-lyt-skill
---------------------------------------------- */
 .mod-lyt-skill {
   height: 916px;
   margin: 0 auto;
@@ -471,11 +531,3 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
     }
   }
 }
-
-// .lyt-skill-list-02-item-inner {
-//   display: flex;
-//   height: 100%;
-//   position: absolute;
-//   text-align: center;
-//   width: 100%;
-// }

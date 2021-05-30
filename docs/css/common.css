@@ -86,7 +86,7 @@ html {
 
 body {
   color: #333;
-  line-height: 2;
+  line-height: 2.2;
   overflow-wrap: break-word;
   position: relative;
   -webkit-text-size-adjust: 100%;
@@ -99,7 +99,7 @@ body {
 
 @media (min-width: 769px) {
   body {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -298,7 +298,12 @@ button[disabled] {
 /* .mod-hdg-l2
 --------------------------------------------- */
 .mod-hdg-l2 {
+  margin-top: 60px;
   text-align: center;
+}
+
+.mod-hdg-l2 + * {
+  margin-top: 30px;
 }
 
 .hdg-02-inner {
@@ -307,7 +312,7 @@ button[disabled] {
   background-clip: text;
   color: transparent;
   display: inline-block;
-  font-size: 5rem;
+  font-size: 7rem;
 }
 
 .hdg-02-inner::before,
@@ -379,18 +384,82 @@ button[disabled] {
   width: 200px;
 }
 
+.list-history-txt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-left: 30px;
+}
+
+.list-history-txt > *:first-child {
+  margin-top: 0;
+}
+
 /* --------------------------------------------------
     Layout
 -------------------------------------------------- */
+
+/* .mod-lyt-profile
+--------------------------------------------- */
+.mod-lyt-profile {
+  min-height: 280px;
+  padding-left: 330px;
+  position: relative;
+}
+
+.lyt-profile-ttl {
+  font-size: 2rem;
+}
+
+.lyt-profile-img {
+  border-radius: 50%;
+  height: 280px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 280px;
+}
+
+.lyt-profile-list-01 {
+  list-style: none;
+  padding-left: 0;
+}
+
+.lyt-profile-list-02 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  margin-left: -15px;
+  padding-left: 0;
+}
+
+.lyt-profile-list-02 > li {
+  height: 50px;
+  margin-left: 15px;
+  width: 50px;
+}
+
+.lyt-profile-list-02 > li img {
+  height: 100%;
+  width: 100%;
+}
+
+/* .mod-lyt-skill
+--------------------------------------------- */
 
 /**
  * 最大値からwv値を返す
  * @param {number} $value - 要素の最大px値（単位なし）
  * @return {string} - vw値
  */
-
-/* .mod-lyt-skill
---------------------------------------------- */
 .mod-lyt-skill {
   height: 916px;
   margin: 0 auto;
