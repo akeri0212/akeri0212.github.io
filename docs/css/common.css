@@ -49,6 +49,7 @@
     01-01. Reset
 -------------------------------------------------- */
 html {
+  font-family: sans-serif;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }
@@ -105,7 +106,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
 }
 
@@ -232,15 +233,15 @@ button[disabled] {
   width: 100%;
 }
 
-@media (min-width: 769px) {
-  .str-inner {
-    padding: 0 20px;
-  }
-}
-
 @media (max-width: 768px) {
   .str-inner {
     padding: 0 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .str-inner {
+    padding: 0 20px;
   }
 }
 
@@ -330,9 +331,20 @@ button[disabled] {
 --------------------------------------------- */
 .mod-list-history {
   list-style: none;
-  margin-left: 30px;
   padding-left: 0;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .mod-list-history {
+    margin-left: 15px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-list-history {
+    margin-left: 30px;
+  }
 }
 
 .mod-list-history::before {
@@ -349,6 +361,18 @@ button[disabled] {
   margin-top: 50px;
   padding-left: 50px;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .mod-list-history > li {
+    padding-left: 25px;
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-list-history > li {
+    padding-left: 50px;
+  }
 }
 
 .mod-list-history > li::before {
@@ -370,10 +394,15 @@ button[disabled] {
 }
 
 .list-history-cont {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   margin-top: 20px;
+}
+
+@media (min-width: 769px) {
+  .list-history-cont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .list-history-img {
@@ -382,6 +411,15 @@ button[disabled] {
   -o-object-fit: cover;
   object-fit: cover;
   width: 200px;
+}
+
+@media (max-width: 768px) {
+  .list-history-img {
+    display: block;
+    margin: 0 auto;
+    -webkit-transform: translateX(-25px);
+    transform: translateX(-25px);
+  }
 }
 
 .list-history-txt {
@@ -395,7 +433,18 @@ button[disabled] {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-left: 30px;
+}
+
+@media (max-width: 768px) {
+  .list-history-txt {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .list-history-txt {
+    margin-left: 30px;
+  }
 }
 
 .list-history-txt > *:first-child {

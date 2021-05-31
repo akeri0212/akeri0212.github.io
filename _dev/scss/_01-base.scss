@@ -8,6 +8,7 @@
     01-01. Reset
 -------------------------------------------------- */
 html {
+  font-family: $base-font-family;
   overflow-y: scroll;
   scroll-behavior: smooth;
 }

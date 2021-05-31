@@ -23,14 +23,13 @@ $main-color-02: #0ce5ff; // メイン色 02
 // デフォルトフォントサイズと行の高さ
 // --------------------------------------------------
 $base-font-size-pc: 1.8rem; // 18px
-$base-font-size-sp: 1.4rem; // 14px
+$base-font-size-sp: 1.6rem; // 16spx
 $base-line-height: 2.2;
 $part-line-height: 1.8;
 // $base-margin-bottom:;
 // $part-margin-bottom:;
 
-// $base-font-family: 'Noto Sans JP', sans-serif;
-// $caveat-font-family: 'Caveat', cursive;
+$base-font-family: sans-serif;
 
 // メディアクエリ
 // -----------------------------------------------

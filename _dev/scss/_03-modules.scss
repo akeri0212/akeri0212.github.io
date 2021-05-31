@@ -44,9 +44,16 @@ $list-history-ttl-fs: 2.8rem;
 
 .mod-list-history {
   list-style: none;
-  margin-left: 30px;
   padding-left: 0;
   position: relative;
+
+  @media #{$media-sp} {
+    margin-left: 15px;
+  }
+
+  @media #{$media-pc} {
+    margin-left: 30px;
+  }
 
   &::before {
     border-left: 5px dotted rgba($main-color-01, 0.5);
@@ -62,6 +69,14 @@ $list-history-ttl-fs: 2.8rem;
     margin-top: 50px;
     padding-left: 50px;
     position: relative;
+
+    @media #{$media-sp} {
+      padding-left: 25px;
+    }
+
+    @media #{$media-pc} {
+      padding-left: 50px;
+    }
 
     &::before {
       background-color: $main-color-01;
@@ -84,8 +99,11 @@ $list-history-ttl-fs: 2.8rem;
 }
 
 .list-history-cont {
-  display: flex;
   margin-top: 20px;
+
+  @media #{$media-pc} {
+    display: flex;
+  }
 }
 
 .list-history-img {
@@ -93,13 +111,26 @@ $list-history-ttl-fs: 2.8rem;
   height: 200px;
   object-fit: cover;
   width: 200px;
+
+  @media #{$media-sp} {
+    display: block;
+    margin: 0 auto;
+    transform: translateX(-25px);
+  }
 }
 
 .list-history-txt {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 30px;
+
+  @media #{$media-sp} {
+    margin-top: 10px;
+  }
+
+  @media #{$media-pc} {
+    margin-left: 30px;
+  }
 
   > *:first-child {
     margin-top: 0;

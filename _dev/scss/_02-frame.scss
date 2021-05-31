@@ -12,12 +12,12 @@
   max-width: $cont-width-max;
   width: 100%;
 
-  @media #{$media-pc} {
-    padding: 0 $cont-padding-pc;
-  }
-
   @media #{$media-sp} {
     padding: 0 $cont-padding-sp;
+  }
+
+  @media #{$media-pc} {
+    padding: 0 $cont-padding-pc;
   }
 
   * > &:first-child {
