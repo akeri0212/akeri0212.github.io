@@ -274,7 +274,9 @@ button[disabled] {
 }
 
 #main-header-hdg {
-  font-size: 8rem;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 10rem;
+  font-weight: 500;
 }
 
 /* 03-01-03. Footer
@@ -299,6 +301,8 @@ button[disabled] {
 /* .mod-hdg-l2
 --------------------------------------------- */
 .mod-hdg-l2 {
+  font-family: "Baloo 2", sans-serif;
+  font-weight: 500;
   margin-top: 60px;
   text-align: center;
 }
@@ -313,7 +317,7 @@ button[disabled] {
   background-clip: text;
   color: transparent;
   display: inline-block;
-  font-size: 7rem;
+  font-size: 8rem;
 }
 
 .hdg-02-inner::before,
