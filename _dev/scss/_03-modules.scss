@@ -338,15 +338,82 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
     font-size: $lyt-skill-list-02-item-base-font-size-wide;
   }
 
-  &._html {
+  &._level01 {
+    height: $lyt-skill-list-02-item-size * 0.8;
+    width: $lyt-skill-list-02-item-size * 0.8;
+  }
+
+  &._level02 {
+    // background-color: #8be4f0;
+    // background-image: linear-gradient(#fff 50%, transparent 50%, transparent 100%);
+
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
+      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
+    }
+  }
+
+  &._level03 {
+    // background-color: #fff;
+    // background-image:
+    //   linear-gradient(-90deg, rgba($main-color-01, 0.3) 50%, transparent 50%),
+    //   linear-gradient(rgba($main-color-01, 0.3) 50%, transparent 50%);
+    // background-size: 20px 20px;
+
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
+      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
+    }
+  }
+
+  &._level04 {
+    // background-image:
+    //   repeating-linear-gradient(
+    //     -45deg,
+    //     rgba($main-color-01, 0.3),
+    //     rgba($main-color-01, 0.3) 3px,
+    //     transparent 0,
+    //     transparent 14px
+    //   );
+
+    @media #{$media-mod-lyt-skill-max} {
+      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
+      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
+    }
+  }
+
+  &._level05 {
+    // background-image:
+    //   radial-gradient(rgba($main-color-01, 0.3) 10%, transparent 10%),
+    //   radial-gradient(rgba($main-color-01, 0.3) 10%, transparent 10%);
+    // background-position: 0 0, 20px 20px;
+    // background-size: 40px 40px;
+
     @media #{$media-mod-lyt-skill-max} {
       font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
+    }
+
+    @media #{$media-mod-lyt-skill-wide} {
+      font-size: $lyt-skill-list-02-item-base-font-size-wide * 2.2;
+    }
+  }
+
+  &._html {
+    @media #{$media-mod-lyt-skill-max} {
       left: return-mod-lyt-skill-vw(54);
       top: return-mod-lyt-skill-vw(55);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 2.2;
       left: 54px;
       top: 55px;
     }
@@ -354,13 +421,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._css {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
       left: return-mod-lyt-skill-vw(283);
       top: return-mod-lyt-skill-vw(64);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 2.2;
       left: 283px;
       top: 64px;
     }
@@ -368,22 +433,17 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._js {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
       left: return-mod-lyt-skill-vw(36);
       top: return-mod-lyt-skill-vw(277);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 36px;
       top: 277px;
     }
   }
 
   &._react {
-    height: $lyt-skill-list-02-item-size * 0.8;
-    width: $lyt-skill-list-02-item-size * 0.8;
-
     @media #{$media-mod-lyt-skill-max} {
       left: return-mod-lyt-skill-vw(232);
       top: return-mod-lyt-skill-vw(278);
@@ -397,13 +457,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._a11y {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
       left: return-mod-lyt-skill-vw(160);
       top: return-mod-lyt-skill-vw(423);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 160px;
       top: 423px;
     }
@@ -411,13 +469,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._gulp {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
       left: return-mod-lyt-skill-vw(325);
       top: return-mod-lyt-skill-vw(322);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
       left: 325px;
       top: 322px;
     }
@@ -425,13 +481,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._git {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
       left: return-mod-lyt-skill-vw(459);
       top: return-mod-lyt-skill-vw(235);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
       left: 459px;
       top: 235px;
     }
@@ -439,13 +493,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._php {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
       left: return-mod-lyt-skill-vw(590);
       top: return-mod-lyt-skill-vw(127);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
       left: 590px;
       top: 127px;
     }
@@ -453,13 +505,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._mysql {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
       left: return-mod-lyt-skill-vw(759);
       top: return-mod-lyt-skill-vw(175);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
       left: 759px;
       top: 175px;
     }
@@ -467,13 +517,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._phpmyadmin {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
       left: return-mod-lyt-skill-vw(759);
       top: return-mod-lyt-skill-vw(295);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
       left: 759px;
       top: 295px;
     }
@@ -481,22 +529,17 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._composer {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
       left: return-mod-lyt-skill-vw(627);
       top: return-mod-lyt-skill-vw(293);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
       left: 627px;
       top: 293px;
     }
   }
 
   &._docker {
-    height: $lyt-skill-list-02-item-size * 0.8;
-    width: $lyt-skill-list-02-item-size * 0.8;
-
     @media #{$media-mod-lyt-skill-max} {
       left: return-mod-lyt-skill-vw(610);
       top: return-mod-lyt-skill-vw(420);
@@ -510,13 +553,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._ps {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
       left: return-mod-lyt-skill-vw(50);
       top: return-mod-lyt-skill-vw(617);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 50px;
       top: 617px;
     }
@@ -524,13 +565,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._ai {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
       left: return-mod-lyt-skill-vw(251);
       top: return-mod-lyt-skill-vw(617);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 251px;
       top: 617px;
     }
@@ -538,13 +577,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._management {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
       left: return-mod-lyt-skill-vw(477);
       top: return-mod-lyt-skill-vw(617);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 477px;
       top: 617px;
     }
@@ -552,13 +589,11 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
   &._improvement {
     @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
       left: return-mod-lyt-skill-vw(669);
       top: return-mod-lyt-skill-vw(617);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
       left: 669px;
       top: 617px;
     }

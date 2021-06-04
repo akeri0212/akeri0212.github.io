@@ -126,6 +126,15 @@ iframe {
   max-width: 100%;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+}
+
 * > h1:first-child,
 * > h2:first-child,
 * > h3:first-child,
@@ -662,9 +671,61 @@ button[disabled] {
   }
 }
 
+.lyt-skill-list-02-item._level01 {
+  height: 5.6em;
+  width: 5.6em;
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .lyt-skill-list-02-item._level02 {
+    font-size: 1.62105vw;
+  }
+}
+
+@media (min-width: 951px) {
+  .lyt-skill-list-02-item._level02 {
+    font-size: 1.54rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .lyt-skill-list-02-item._level03 {
+    font-size: 2.21053vw;
+  }
+}
+
+@media (min-width: 951px) {
+  .lyt-skill-list-02-item._level03 {
+    font-size: 2.1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .lyt-skill-list-02-item._level04 {
+    font-size: 2.8vw;
+  }
+}
+
+@media (min-width: 951px) {
+  .lyt-skill-list-02-item._level04 {
+    font-size: 2.66rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 950px) {
+  .lyt-skill-list-02-item._level05 {
+    font-size: 3.24211vw;
+  }
+}
+
+@media (min-width: 951px) {
+  .lyt-skill-list-02-item._level05 {
+    font-size: 3.08rem;
+  }
+}
+
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._html {
-    font-size: 3.24211vw;
     left: 5.68421vw;
     top: 5.78947vw;
   }
@@ -672,7 +733,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._html {
-    font-size: 3.08rem;
     left: 54px;
     top: 55px;
   }
@@ -680,7 +740,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._css {
-    font-size: 3.24211vw;
     left: 29.78947vw;
     top: 6.73684vw;
   }
@@ -688,7 +747,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._css {
-    font-size: 3.08rem;
     left: 283px;
     top: 64px;
   }
@@ -696,7 +754,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._js {
-    font-size: 2.8vw;
     left: 3.78947vw;
     top: 29.15789vw;
   }
@@ -704,15 +761,9 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._js {
-    font-size: 2.66rem;
     left: 36px;
     top: 277px;
   }
-}
-
-.lyt-skill-list-02-item._react {
-  height: 5.6em;
-  width: 5.6em;
 }
 
 @media (min-width: 769px) and (max-width: 950px) {
@@ -731,7 +782,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._a11y {
-    font-size: 2.8vw;
     left: 16.84211vw;
     top: 44.52632vw;
   }
@@ -739,7 +789,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._a11y {
-    font-size: 2.66rem;
     left: 160px;
     top: 423px;
   }
@@ -747,7 +796,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._gulp {
-    font-size: 2.21053vw;
     left: 34.21053vw;
     top: 33.89474vw;
   }
@@ -755,7 +803,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._gulp {
-    font-size: 2.1rem;
     left: 325px;
     top: 322px;
   }
@@ -763,7 +810,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._git {
-    font-size: 2.21053vw;
     left: 48.31579vw;
     top: 24.73684vw;
   }
@@ -771,7 +817,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._git {
-    font-size: 2.1rem;
     left: 459px;
     top: 235px;
   }
@@ -779,7 +824,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._php {
-    font-size: 2.21053vw;
     left: 62.10526vw;
     top: 13.36842vw;
   }
@@ -787,7 +831,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._php {
-    font-size: 2.1rem;
     left: 590px;
     top: 127px;
   }
@@ -795,7 +838,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._mysql {
-    font-size: 1.62105vw;
     left: 79.89474vw;
     top: 18.42105vw;
   }
@@ -803,7 +845,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._mysql {
-    font-size: 1.54rem;
     left: 759px;
     top: 175px;
   }
@@ -811,7 +852,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._phpmyadmin {
-    font-size: 1.62105vw;
     left: 79.89474vw;
     top: 31.05263vw;
   }
@@ -819,7 +859,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._phpmyadmin {
-    font-size: 1.54rem;
     left: 759px;
     top: 295px;
   }
@@ -827,7 +866,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._composer {
-    font-size: 1.62105vw;
     left: 66vw;
     top: 30.84211vw;
   }
@@ -835,15 +873,9 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._composer {
-    font-size: 1.54rem;
     left: 627px;
     top: 293px;
   }
-}
-
-.lyt-skill-list-02-item._docker {
-  height: 5.6em;
-  width: 5.6em;
 }
 
 @media (min-width: 769px) and (max-width: 950px) {
@@ -862,7 +894,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._ps {
-    font-size: 2.8vw;
     left: 5.26316vw;
     top: 64.94737vw;
   }
@@ -870,7 +901,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._ps {
-    font-size: 2.66rem;
     left: 50px;
     top: 617px;
   }
@@ -878,7 +908,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._ai {
-    font-size: 2.8vw;
     left: 26.42105vw;
     top: 64.94737vw;
   }
@@ -886,7 +915,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._ai {
-    font-size: 2.66rem;
     left: 251px;
     top: 617px;
   }
@@ -894,7 +922,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._management {
-    font-size: 2.8vw;
     left: 50.21053vw;
     top: 64.94737vw;
   }
@@ -902,7 +929,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._management {
-    font-size: 2.66rem;
     left: 477px;
     top: 617px;
   }
@@ -910,7 +936,6 @@ button[disabled] {
 
 @media (min-width: 769px) and (max-width: 950px) {
   .lyt-skill-list-02-item._improvement {
-    font-size: 2.8vw;
     left: 70.42105vw;
     top: 64.94737vw;
   }
@@ -918,7 +943,6 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._improvement {
-    font-size: 2.66rem;
     left: 669px;
     top: 617px;
   }

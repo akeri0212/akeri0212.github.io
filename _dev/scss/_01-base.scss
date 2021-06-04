@@ -86,7 +86,8 @@ h3,
 h4,
 h5,
 h6 {
-  // line-height: $part-line-height;
+  line-height: $part-line-height;
+
   @media #{$media-pc} {
     // margin-top: 45/30*1em;
   }
