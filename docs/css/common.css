@@ -4,33 +4,33 @@
 *   01. Base
 *       01-01. Reset
 *       01-02. Default
-*   02. Modules
-*   02-01. Support
-*   02-02. Basic Modules
-*       02-02-01. Text
-*       02-02-02. Heading
-*       02-02-03. List
-*       02-02-04. Link
-*       02-02-05. Button
-*       02-02-06. Box
-*       02-02-07. Table
-*       02-02-08. Index
-*       02-02-09. Banner
-*       02-02-10. Image
-*       02-02-11. Form
-*       02-02-12. Layout
-*       02-02-13. JavaScript
-*       02-02-14. Unique
-*   02-03. Column adjustment
-*   02-04. Margin Bottom Management
-*   03. Frame
-*   03-01. Structure
-*       03-01-01. Header
-*       03-01-02. Navigation
-*       03-01-03. Main
-*       03-01-04. Footer
-*   03-02. Area
-*   03-03. Section
+*   02. Frame
+*       02-01. Structure
+*           02-01-01. Header
+*           02-01-02. Navigation
+*           02-01-03. Main
+*           02-01-04. Footer
+*       02-02. Area
+*       02-03. Section
+*   03. Modules
+*       03-01. Basic Modules
+*           03-01-01. Text
+*           03-01-02. Heading
+*           03-01-03. List
+*           03-01-04. Link
+*           03-01-05. Button
+*           03-01-06. Box
+*           03-01-07. Table
+*           03-01-08. Index
+*           03-01-09. Banner
+*           03-01-10. Image
+*           03-01-11. Form
+*           03-01-12. Layout
+*           03-01-13. JavaScript
+*           03-01-14. Unique
+*       03-02. Column adjustment
+*       03-03. Support
+*       03-04. Margin Bottom Management
 *   04. Z-Index
 *================================================== */
 
@@ -230,11 +230,11 @@ button[disabled] {
 }
 
 /* ==================================================
-    03. Frame
+    02. Frame
 ================================================== */
 
 /* --------------------------------------------------
-    03-01. Structure
+    02-01. Structure
 -------------------------------------------------- */
 .str-inner {
   margin: 90px auto 0;
@@ -258,13 +258,13 @@ button[disabled] {
   margin-top: 0;
 }
 
-/* 03-01-01. Header
+/* 02-01-01. Header
 --------------------------------------------- */
 
-/* 03-01-02. Navigation
+/* 02-01-02. Navigation
 --------------------------------------------- */
 
-/* 03-01-03. Main
+/* 02-01-03. Main
 --------------------------------------------- */
 #main-header {
   background-image: linear-gradient(110deg, #0080e2, #0ce5ff);
@@ -284,19 +284,30 @@ button[disabled] {
 
 #main-header-hdg {
   font-family: "Baloo 2", sans-serif;
-  font-size: 10rem;
   font-weight: 500;
 }
 
-/* 03-01-03. Footer
+@media (max-width: 768px) {
+  #main-header-hdg {
+    font-size: 8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  #main-header-hdg {
+    font-size: 10rem;
+  }
+}
+
+/* 02-01-03. Footer
 --------------------------------------------- */
 
 /* --------------------------------------------------
-    03-02. Area
+    02-02. Area
 -------------------------------------------------- */
 
 /* --------------------------------------------------
-    03-03. Section
+    02-03. Section
 -------------------------------------------------- */
 
 /* ==================================================
@@ -326,14 +337,18 @@ button[disabled] {
   background-clip: text;
   color: transparent;
   display: inline-block;
-  font-size: 8rem;
 }
 
-.hdg-02-inner::before,
-.hdg-02-inner::after {
-  color: rgba(255, 255, 255, 0.3);
-  content: '●●●';
-  font-size: 0.7em;
+@media (max-width: 768px) {
+  .hdg-02-inner {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hdg-02-inner {
+    font-size: 8rem;
+  }
 }
 
 /* --------------------------------------------------
@@ -350,24 +365,37 @@ button[disabled] {
 
 @media (max-width: 768px) {
   .mod-list-history {
-    margin-left: 15px;
+    margin: 0 15px;
   }
 }
 
 @media (min-width: 769px) {
   .mod-list-history {
-    margin-left: 30px;
+    margin: 0 30px;
   }
 }
 
 .mod-list-history::before {
-  border-left: 5px dotted rgba(0, 128, 226, 0.5);
+  background-image: radial-gradient(rgba(0, 128, 226, 0.5) 40%, transparent 40%);
+  background-size: 10px 10px;
   content: '';
   height: 100%;
   left: 0;
+  margin-left: -3px;
   position: absolute;
-  top: 2.8rem;
-  width: 30px;
+  width: 10px;
+}
+
+@media (max-width: 768px) {
+  .mod-list-history::before {
+    top: 2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-list-history::before {
+    top: 2.8rem;
+  }
 }
 
 .mod-list-history > li {
@@ -396,14 +424,49 @@ button[disabled] {
   left: 0;
   margin-left: -5px;
   position: absolute;
-  top: calc(2.8rem - 7px);
   width: 15px;
+}
+
+@media (max-width: 768px) {
+  .mod-list-history > li::before {
+    top: calc(1.4rem - 7px);
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-list-history > li::before {
+    top: calc(1.96rem - 7px);
+  }
 }
 
 .list-history-ttl {
   color: #0080e2;
-  display: block;
   font-size: 2.8rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .list-history-ttl-year {
+    display: block;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .list-history-ttl-year + .list-history-ttl-event {
+    margin-left: 1em;
+  }
+}
+
+.list-history-ttl-event {
+  color: #0080e2;
+  font-size: 2.8rem;
+}
+
+@media (max-width: 768px) {
+  .list-history-ttl-event {
+    display: block;
+  }
 }
 
 .list-history-cont {
@@ -430,8 +493,6 @@ button[disabled] {
   .list-history-img {
     display: block;
     margin: 0 auto;
-    -webkit-transform: translateX(-25px);
-    transform: translateX(-25px);
   }
 }
 
@@ -472,21 +533,44 @@ button[disabled] {
 --------------------------------------------- */
 .mod-lyt-profile {
   min-height: 280px;
-  padding-left: 330px;
   position: relative;
+}
+
+@media (min-width: 769px) {
+  .mod-lyt-profile {
+    padding-left: 330px;
+  }
 }
 
 .lyt-profile-ttl {
   font-size: 2rem;
 }
 
+@media (max-width: 768px) {
+  .lyt-profile-ttl {
+    display: block;
+  }
+}
+
 .lyt-profile-img {
   border-radius: 50%;
   height: 280px;
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 280px;
+}
+
+@media (max-width: 768px) {
+  .lyt-profile-img {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 769px) {
+  .lyt-profile-img {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .lyt-profile-list-01 {
@@ -529,7 +613,7 @@ button[disabled] {
   position: relative;
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .mod-lyt-skill {
     height: 96.42105vw;
   }
@@ -541,11 +625,25 @@ button[disabled] {
 }
 
 .lyt-skill-list-01-item {
-  background-color: rgba(0, 128, 226, 0.3);
+  background-color: rgba(12, 229, 255, 0.5);
   border-radius: 50%;
+  color: #0080e2;
+  font-weight: bold;
   margin-top: 0;
   padding-left: 0;
   position: absolute;
+}
+
+@media (max-width: 950px) {
+  .lyt-skill-list-01-item {
+    font-size: 2.73684vw;
+  }
+}
+
+@media (min-width: 951px) {
+  .lyt-skill-list-01-item {
+    font-size: 2.6rem;
+  }
 }
 
 .lyt-skill-list-01-item._frontend {
@@ -553,9 +651,10 @@ button[disabled] {
   top: 0;
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-01-item._frontend {
     height: 61.05263vw;
+    padding-top: 1.05263vw;
     width: 61.05263vw;
   }
 }
@@ -563,20 +662,20 @@ button[disabled] {
 @media (min-width: 951px) {
   .lyt-skill-list-01-item._frontend {
     height: 580px;
-    left: 0;
+    padding-top: 10px;
     width: 580px;
   }
 }
 
 .lyt-skill-list-01-item._backend {
-  right: 0;
-  top: 160px;
+  text-align: right;
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-01-item._backend {
     height: 45.26316vw;
     left: 50.42105vw;
+    padding-top: 2.10526vw;
     top: 9.47368vw;
     width: 45.26316vw;
   }
@@ -586,19 +685,17 @@ button[disabled] {
   .lyt-skill-list-01-item._backend {
     height: 430px;
     left: 479px;
+    padding-top: 20px;
     top: 90px;
     width: 430px;
   }
 }
 
-.lyt-skill-list-01-item._design {
-  left: 0;
-}
-
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-01-item._design {
     height: 47.36842vw;
     left: 1.89474vw;
+    padding-top: 8.42105vw;
     top: 47.36842vw;
     width: 47.36842vw;
   }
@@ -608,19 +705,21 @@ button[disabled] {
   .lyt-skill-list-01-item._design {
     height: 450px;
     left: 18px;
+    padding-top: 80px;
     top: 450px;
     width: 450px;
   }
 }
 
 .lyt-skill-list-01-item._others {
-  right: 0;
+  text-align: right;
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-01-item._others {
     height: 41.05263vw;
     left: 49.78947vw;
+    padding-top: 2.10526vw;
     top: 55.36842vw;
     width: 41.05263vw;
   }
@@ -630,9 +729,14 @@ button[disabled] {
   .lyt-skill-list-01-item._others {
     height: 390px;
     left: 473px;
+    padding-top: 20px;
     top: 526px;
     width: 390px;
   }
+}
+
+.lyt-skill-list-01-item-inner {
+  border-bottom: 2px solid #0ce5ff;
 }
 
 .lyt-skill-list-02 {
@@ -665,6 +769,12 @@ button[disabled] {
   width: 7em;
 }
 
+@media (max-width: 768px) {
+  .lyt-skill-list-02-item {
+    border-width: 3px;
+  }
+}
+
 @media (min-width: 951px) {
   .lyt-skill-list-02-item {
     font-size: 1.4rem;
@@ -676,7 +786,13 @@ button[disabled] {
   width: 5.6em;
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 768px) {
+  .lyt-skill-list-02-item._level01 {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._level02 {
     font-size: 1.62105vw;
   }
@@ -688,7 +804,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._level03 {
     font-size: 2.21053vw;
   }
@@ -700,7 +816,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._level04 {
     font-size: 2.8vw;
   }
@@ -712,7 +828,13 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 768px) {
+  .lyt-skill-list-02-item._level05 {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._level05 {
     font-size: 3.24211vw;
   }
@@ -724,7 +846,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._html {
     left: 5.68421vw;
     top: 5.78947vw;
@@ -738,7 +860,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._css {
     left: 29.78947vw;
     top: 6.73684vw;
@@ -752,7 +874,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._js {
     left: 3.78947vw;
     top: 29.15789vw;
@@ -766,7 +888,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._react {
     left: 24.42105vw;
     top: 29.26316vw;
@@ -780,7 +902,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._a11y {
     left: 16.84211vw;
     top: 44.52632vw;
@@ -794,7 +916,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._gulp {
     left: 34.21053vw;
     top: 33.89474vw;
@@ -808,7 +930,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._git {
     left: 48.31579vw;
     top: 24.73684vw;
@@ -822,7 +944,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._php {
     left: 62.10526vw;
     top: 13.36842vw;
@@ -836,7 +958,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._mysql {
     left: 79.89474vw;
     top: 18.42105vw;
@@ -850,7 +972,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._phpmyadmin {
     left: 79.89474vw;
     top: 31.05263vw;
@@ -864,7 +986,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._composer {
     left: 66vw;
     top: 30.84211vw;
@@ -878,7 +1000,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._docker {
     left: 64.21053vw;
     top: 44.21053vw;
@@ -892,7 +1014,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._ps {
     left: 5.26316vw;
     top: 64.94737vw;
@@ -906,7 +1028,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._ai {
     left: 26.42105vw;
     top: 64.94737vw;
@@ -920,7 +1042,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._management {
     left: 50.21053vw;
     top: 64.94737vw;
@@ -934,7 +1056,7 @@ button[disabled] {
   }
 }
 
-@media (min-width: 769px) and (max-width: 950px) {
+@media (max-width: 950px) {
   .lyt-skill-list-02-item._improvement {
     left: 70.42105vw;
     top: 64.94737vw;
@@ -945,5 +1067,14 @@ button[disabled] {
   .lyt-skill-list-02-item._improvement {
     left: 669px;
     top: 617px;
+  }
+}
+
+/* --------------------------------------------------
+    Support
+-------------------------------------------------- */
+@media (min-width: 769px) {
+  .pc-disable {
+    display: none;
   }
 }

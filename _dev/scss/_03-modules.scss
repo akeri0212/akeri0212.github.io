@@ -26,14 +26,21 @@
   background-clip: text;
   color: transparent;
   display: inline-block;
-  font-size: 8rem;
 
-  &::before,
-  &::after {
-    color: rgba(#fff, 0.3);
-    content: '●●●';
-    font-size: 0.7em;
+  @media #{$media-sp} {
+    font-size: 6rem;
   }
+
+  @media #{$media-pc} {
+    font-size: 8rem;
+  }
+
+  // &::before,
+  // &::after {
+  //   color: rgba(#fff, 0.3);
+  //   content: '●●●';
+  //   font-size: 0.7em;
+  // }
 }
 
 /* --------------------------------------------------
@@ -42,7 +49,8 @@
 
 /* .mod-list-history
 --------------------------------------------- */
-$list-history-ttl-fs: 2.8rem;
+$list-history-ttl-fs-big: 2.8rem;
+$list-history-ttl-fs-sml: 2rem;
 
 .mod-list-history {
   list-style: none;
@@ -50,21 +58,30 @@ $list-history-ttl-fs: 2.8rem;
   position: relative;
 
   @media #{$media-sp} {
-    margin-left: 15px;
+    margin: 0 15px;
   }
 
   @media #{$media-pc} {
-    margin-left: 30px;
+    margin: 0 30px;
   }
 
   &::before {
-    border-left: 5px dotted rgba($main-color-01, 0.5);
+    background-image: radial-gradient(rgba($main-color-01, 0.5) 40%, transparent 40%);
+    background-size: 10px 10px;
     content: '';
     height: 100%;
     left: 0;
+    margin-left: -3px;
     position: absolute;
-    top: $list-history-ttl-fs;
-    width: 30px;
+    width: 10px;
+
+    @media #{$media-sp} {
+      top: $list-history-ttl-fs-sml;
+    }
+
+    @media #{$media-pc} {
+      top: $list-history-ttl-fs-big;
+    }
   }
 
   > li {
@@ -88,16 +105,45 @@ $list-history-ttl-fs: 2.8rem;
       left: 0;
       margin-left: -5px;
       position: absolute;
-      top: calc(#{$list-history-ttl-fs} - 7px);
       width: 15px;
+
+      @media #{$media-sp} {
+        top: calc(#{$list-history-ttl-fs-sml * $part-line-height / 2} - 7px);
+      }
+
+      @media #{$media-pc} {
+        top: calc(#{$list-history-ttl-fs-big * $part-line-height / 2} - 7px);
+      }
     }
   }
 }
 
 .list-history-ttl {
   color: $main-color-01;
-  display: block;
-  font-size: $list-history-ttl-fs;
+  font-size: $list-history-ttl-fs-big;
+  line-height: $part-line-height;
+}
+
+.list-history-ttl-year {
+  @media #{$media-sp} {
+    display: block;
+    font-size: $list-history-ttl-fs-sml;
+  }
+
+  + .list-history-ttl-event {
+    @media #{$media-pc} {
+      margin-left: 1em;
+    }
+  }
+}
+
+.list-history-ttl-event {
+  color: $main-color-01;
+  font-size: $list-history-ttl-fs-big;
+
+  @media #{$media-sp} {
+    display: block;
+  }
 }
 
 .list-history-cont {
@@ -117,7 +163,7 @@ $list-history-ttl-fs: 2.8rem;
   @media #{$media-sp} {
     display: block;
     margin: 0 auto;
-    transform: translateX(-25px);
+    // transform: translateX(-25px);
   }
 }
 
@@ -147,21 +193,39 @@ $list-history-ttl-fs: 2.8rem;
 --------------------------------------------- */
 .mod-lyt-profile {
   min-height: 280px;
-  padding-left: 330px;
   position: relative;
+
+  @media #{$media-sp} {
+  }
+
+  @media #{$media-pc} {
+    padding-left: 330px;
+  }
 }
 
 .lyt-profile-ttl {
   font-size: 2rem;
+
+  @media #{$media-sp} {
+    display: block;
+  }
 }
 
 .lyt-profile-img {
   border-radius: 50%;
   height: 280px;
-  left: 0;
-  position: absolute;
-  top: 0;
   width: 280px;
+
+  @media #{$media-sp} {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media #{$media-pc} {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
 }
 
 .lyt-profile-list-01 {
@@ -201,10 +265,10 @@ $mod-lyt-skill-max-width: 910px;
 }
 
 $lyt-skill-list-02-item-base-font-size-wide: 1.4rem; // 画面幅1200pxの時のデフォルトフォントサイズ
-// $lyt-skill-list-02-item-base-font-size: return-num($lyt-skill-list-02-item-base-font-size-wide) * 10 / return-num($mod-lyt-skill-max-width) * 100vw; // 14pxをベースに画面幅に合わせて可変
 $lyt-skill-list-02-item-base-font-size: return-mod-lyt-skill-vw(return-num($lyt-skill-list-02-item-base-font-size-wide * 10)); // 14pxをベースに画面幅に合わせて可変
 $lyt-skill-list-02-item-size: 7em;
-$media-mod-lyt-skill-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
+// $media-mod-lyt-skill-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
+$media-mod-lyt-skill-max: '(max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
 $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-padding-pc * 2 + 1px})'; // モジュール最大幅以上
 
 .mod-lyt-skill {
@@ -224,11 +288,21 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 }
 
 .lyt-skill-list-01-item {
-  background-color: rgba($main-color-01, 0.3);
+  background-color: rgba($main-color-02, 0.5);
   border-radius: 50%;
+  color: $main-color-01;
+  font-weight: bold;
   margin-top: 0;
   padding-left: 0;
   position: absolute;
+
+  @media #{$media-mod-lyt-skill-max} {
+    font-size: return-mod-lyt-skill-vw(26);
+  }
+
+  @media #{$media-mod-lyt-skill-wide} {
+    font-size: 2.6rem;
+  }
 
   &._frontend {
     left: 0;
@@ -236,42 +310,42 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
 
     @media #{$media-mod-lyt-skill-max} {
       height: return-mod-lyt-skill-vw(580);
+      padding-top: return-mod-lyt-skill-vw(10);
       width: return-mod-lyt-skill-vw(580);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
       height: 580px;
-      left: 0;
+      padding-top: 10px;
       width: 580px;
     }
   }
 
   &._backend {
-    right: 0;
-    top: 160px;
+    text-align: right;
 
     @media #{$media-mod-lyt-skill-max} {
       height: return-mod-lyt-skill-vw(430);
       left: return-mod-lyt-skill-vw(479);
+      padding-top: return-mod-lyt-skill-vw(20);
       top: return-mod-lyt-skill-vw(90);
       width: return-mod-lyt-skill-vw(430);
     }
 
     @media #{$media-mod-lyt-skill-wide} {
-      // right: 90px;
       height: 430px;
       left: 479px;
+      padding-top: 20px;
       top: 90px;
       width: 430px;
     }
   }
 
   &._design {
-    left: 0;
-
     @media #{$media-mod-lyt-skill-max} {
       height: return-mod-lyt-skill-vw(450);
       left: return-mod-lyt-skill-vw(18);
+      padding-top: return-mod-lyt-skill-vw(80);
       top: return-mod-lyt-skill-vw(450);
       width: return-mod-lyt-skill-vw(450);
     }
@@ -279,17 +353,19 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
     @media #{$media-mod-lyt-skill-wide} {
       height: 450px;
       left: 18px;
+      padding-top: 80px;
       top: 450px;
       width: 450px;
     }
   }
 
   &._others {
-    right: 0;
+    text-align: right;
 
     @media #{$media-mod-lyt-skill-max} {
       height: return-mod-lyt-skill-vw(390);
       left: return-mod-lyt-skill-vw(473);
+      padding-top: return-mod-lyt-skill-vw(20);
       top: return-mod-lyt-skill-vw(526);
       width: return-mod-lyt-skill-vw(390);
     }
@@ -297,10 +373,15 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
     @media #{$media-mod-lyt-skill-wide} {
       height: 390px;
       left: 473px;
+      padding-top: 20px;
       top: 526px;
       width: 390px;
     }
   }
+}
+
+.lyt-skill-list-01-item-inner {
+  border-bottom: 2px solid $main-color-02;
 }
 
 .lyt-skill-list-02 {
@@ -315,7 +396,7 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
   border-radius: 50%;
   color: $main-color-01;
   display: flex;
-  font-size: $lyt-skill-list-02-item-base-font-size;
+  font-size: return-mod-lyt-skill-vw(return-num($lyt-skill-list-02-item-base-font-size-wide * 10));
   font-weight: bold;
   height: $lyt-skill-list-02-item-size;
   justify-content: center;
@@ -334,6 +415,10 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
     0 -2px 1px #fff;
   width: $lyt-skill-list-02-item-size;
 
+  @media #{$media-sp} {
+    border-width: 3px;
+  }
+
   @media #{$media-mod-lyt-skill-wide} {
     font-size: $lyt-skill-list-02-item-base-font-size-wide;
   }
@@ -341,6 +426,10 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
   &._level01 {
     height: $lyt-skill-list-02-item-size * 0.8;
     width: $lyt-skill-list-02-item-size * 0.8;
+
+    @media #{$media-sp} {
+      white-space: nowrap;
+    }
   }
 
   &._level02 {
@@ -397,6 +486,10 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
     //   radial-gradient(rgba($main-color-01, 0.3) 10%, transparent 10%);
     // background-position: 0 0, 20px 20px;
     // background-size: 40px 40px;
+
+    @media #{$media-sp} {
+      margin-top: 10px;
+    }
 
     @media #{$media-mod-lyt-skill-max} {
       font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
@@ -597,5 +690,15 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
       left: 669px;
       top: 617px;
     }
+  }
+}
+
+/* --------------------------------------------------
+    Support
+-------------------------------------------------- */
+
+.pc-disable {
+  @media #{$media-pc} {
+    display: none;
   }
 }
