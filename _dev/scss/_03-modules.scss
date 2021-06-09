@@ -16,6 +16,14 @@
   margin-top: 60px;
   text-align: center;
 
+  @media #{$media-sp} {
+    font-size: 6rem;
+  }
+
+  @media #{$media-pc} {
+    font-size: 8rem;
+  }
+
   + * {
     margin-top: 30px;
   }
@@ -26,21 +34,56 @@
   background-clip: text;
   color: transparent;
   display: inline-block;
+}
+
+/* .mod-hdg-l3
+--------------------------------------------- */
+.mod-hdg-l3 {
+  color: $main-color-01;
+  padding-left: 1.2em;
+  position: relative;
+
+  &::before {
+    background: linear-gradient(20deg, $main-color-01, $main-color-02);
+    background-clip: text;
+    color: transparent;
+    content: '●●';
+    display: block;
+    font-size: 0.5em;
+    left: 0;
+    line-height: $part-line-height;
+    position: absolute;
+
+    @media #{$media-sp} {
+      top: (2.2 * $part-line-height / 2 - 2.2 * 0.5 / 2) * 1rem;
+    }
+
+    @media #{$media-pc} {
+      top: (2.8 * $part-line-height / 2 - 2.8 * 0.5 / 2) * 1rem;
+    }
+  }
 
   @media #{$media-sp} {
-    font-size: 6rem;
+    font-size: 2.2rem;
   }
 
   @media #{$media-pc} {
-    font-size: 8rem;
+    font-size: 2.8rem;
+  }
+}
+
+/* .mod-hdg-l4
+--------------------------------------------- */
+.mod-hdg-l4 {
+  color: $main-color-01;
+
+  @media #{$media-sp} {
+    font-size: 1.8rem;
   }
 
-  // &::before,
-  // &::after {
-  //   color: rgba(#fff, 0.3);
-  //   content: '●●●';
-  //   font-size: 0.7em;
-  // }
+  @media #{$media-pc} {
+    font-size: 2rem;
+  }
 }
 
 /* --------------------------------------------------
@@ -405,14 +448,14 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
   position: absolute;
   text-align: center;
   text-shadow:
-    2px  2px 1px #fff,
-    -2px  2px 1px #fff,
-    2px -2px 1px #fff,
-    -2px -2px 1px #fff,
-    2px  0 1px #fff,
-    0  2px 1px #fff,
-    -2px  0 1px #fff,
-    0 -2px 1px #fff;
+    1px 1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px 0 0 #fff,
+    0 1px 0 #fff,
+    -1px 0 0 #fff,
+    0 -1px 0 #fff;
   width: $lyt-skill-list-02-item-size;
 
   @media #{$media-sp} {
@@ -424,69 +467,94 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
   }
 
   &._level01 {
+    background-image:
+      radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%),
+      radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%);
+    background-position: 0 0, return-mod-lyt-skill-vw(30) return-mod-lyt-skill-vw(30);
+    background-size: return-mod-lyt-skill-vw(60) return-mod-lyt-skill-vw(60);
     height: $lyt-skill-list-02-item-size * 0.8;
     width: $lyt-skill-list-02-item-size * 0.8;
 
     @media #{$media-sp} {
       white-space: nowrap;
     }
+
+    @media #{$media-mod-lyt-skill-wide} {
+      background-position: 0 0, 30px 30px;
+      background-size: 60px 60px;
+    }
   }
 
   &._level02 {
-    // background-color: #8be4f0;
-    // background-image: linear-gradient(#fff 50%, transparent 50%, transparent 100%);
+    background-image:
+      radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%),
+      radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%);
 
     @media #{$media-mod-lyt-skill-max} {
+      background-position: 0 0, return-mod-lyt-skill-vw(4) return-mod-lyt-skill-vw(4);
+      background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
       font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
     }
 
     @media #{$media-mod-lyt-skill-wide} {
+      background-position: 0 0, 4px 4px;
+      background-size: 18px 18px;
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
     }
   }
 
   &._level03 {
-    // background-color: #fff;
     // background-image:
-    //   linear-gradient(-90deg, rgba($main-color-01, 0.3) 50%, transparent 50%),
-    //   linear-gradient(rgba($main-color-01, 0.3) 50%, transparent 50%);
-    // background-size: 20px 20px;
+    //   repeating-linear-gradient(
+    //     -45deg,
+    //     rgba($main-color-01, 0.3),
+    //     rgba($main-color-01, 0.3) 2px,
+    //     transparent 0,
+    //     transparent 13px
+    //   );
+
+    // background-image:
+    //   radial-gradient(rgba($main-color-01, 0.3) 25%, transparent 25%),
+    //   radial-gradient(rgba($main-color-01, 0.3) 25%, transparent 25%);
+    // background-position: 0 0, 9px 9px;
+    // background-size: 18px 18px;
+
+    background-image:
+      radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
+      radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
+    background-position: 0 0, return-mod-lyt-skill-vw(12) return-mod-lyt-skill-vw(12);
+    background-size: return-mod-lyt-skill-vw(24) return-mod-lyt-skill-vw(24);
 
     @media #{$media-mod-lyt-skill-max} {
       font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
     }
 
     @media #{$media-mod-lyt-skill-wide} {
+      background-position: 0 0, 12px 12px;
+      background-size: 24px 24px;
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
     }
   }
 
   &._level04 {
-    // background-image:
-    //   repeating-linear-gradient(
-    //     -45deg,
-    //     rgba($main-color-01, 0.3),
-    //     rgba($main-color-01, 0.3) 3px,
-    //     transparent 0,
-    //     transparent 14px
-    //   );
+    background-image:
+      radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%),
+      radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%);
 
     @media #{$media-mod-lyt-skill-max} {
+      background-position: 0 0, return-mod-lyt-skill-vw(9) return-mod-lyt-skill-vw(9);
+      background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
       font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
     }
 
     @media #{$media-mod-lyt-skill-wide} {
+      background-position: 0 0, 9px 9px;
+      background-size: 18px 18px;
       font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
     }
   }
 
   &._level05 {
-    // background-image:
-    //   radial-gradient(rgba($main-color-01, 0.3) 10%, transparent 10%),
-    //   radial-gradient(rgba($main-color-01, 0.3) 10%, transparent 10%);
-    // background-position: 0 0, 20px 20px;
-    // background-size: 40px 40px;
-
     @media #{$media-sp} {
       margin-top: 10px;
     }
