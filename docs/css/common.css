@@ -327,6 +327,18 @@ button[disabled] {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .mod-hdg-l2 {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-hdg-l2 {
+    font-size: 8rem;
+  }
+}
+
 .mod-hdg-l2 + * {
   margin-top: 30px;
 }
@@ -339,21 +351,131 @@ button[disabled] {
   display: inline-block;
 }
 
+/* .mod-hdg-l3
+--------------------------------------------- */
+.mod-hdg-l3 {
+  color: #0080e2;
+  margin-top: 40px;
+  padding-left: 1.2em;
+  position: relative;
+}
+
 @media (max-width: 768px) {
-  .hdg-02-inner {
-    font-size: 6rem;
+  .mod-hdg-l3 {
+    font-size: 2.2rem;
   }
 }
 
 @media (min-width: 769px) {
-  .hdg-02-inner {
-    font-size: 8rem;
+  .mod-hdg-l3 {
+    font-size: 2.8rem;
+  }
+}
+
+.mod-hdg-l3::before {
+  background: linear-gradient(20deg, #0080e2, #0ce5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  content: '●●';
+  display: block;
+  font-size: 0.5em;
+  left: 0;
+  line-height: 1.4;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .mod-hdg-l3::before {
+    top: 0.99rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-hdg-l3::before {
+    top: 1.26rem;
+  }
+}
+
+.mod-hdg-l3 + * {
+  margin-top: 30px;
+}
+
+/* .mod-hdg-l4
+--------------------------------------------- */
+.mod-hdg-l4 {
+  color: #0080e2;
+}
+
+@media (max-width: 768px) {
+  .mod-hdg-l4 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mod-hdg-l4 {
+    font-size: 2rem;
   }
 }
 
 /* --------------------------------------------------
     List
 -------------------------------------------------- */
+
+/* .mod-list-legend
+--------------------------------------------- */
+.mod-list-legend {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  font-size: 1.4rem;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 1.4;
+  list-style: none;
+  margin-left: -30px;
+  padding-left: 0;
+}
+
+.mod-list-legend > li {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px 0 0 30px;
+}
+
+.mod-list-legend > li::before {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+  border: 3px solid #0080e2;
+  border-radius: 50%;
+  color: #0080e2;
+  content: '';
+  height: 50px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: 10px;
+  padding-left: 0;
+  width: 50px;
+}
+
+@media (max-width: 768px) {
+  .mod-list-legend > li::before {
+    border-width: 3px;
+    height: 30px;
+    width: 30px;
+  }
+}
 
 /* .mod-list-history
 --------------------------------------------- */
@@ -765,7 +887,7 @@ button[disabled] {
   padding-left: 0;
   position: absolute;
   text-align: center;
-  text-shadow: 2px  2px 1px #fff, -2px  2px 1px #fff, 2px -2px 1px #fff, -2px -2px 1px #fff, 2px  0 1px #fff, 0  2px 1px #fff, -2px  0 1px #fff, 0 -2px 1px #fff;
+  text-shadow: 1px 1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff, 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff;
   width: 7em;
 }
 
@@ -782,6 +904,9 @@ button[disabled] {
 }
 
 .lyt-skill-list-02-item._level01 {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 40%, transparent 40%), radial-gradient(rgba(0, 128, 226, 0.3) 40%, transparent 40%);
+  background-position: 0 0, 3.15789vw 3.15789vw;
+  background-size: 6.31579vw 6.31579vw;
   height: 5.6em;
   width: 5.6em;
 }
@@ -792,16 +917,37 @@ button[disabled] {
   }
 }
 
+@media (min-width: 951px) {
+  .lyt-skill-list-02-item._level01 {
+    background-position: 0 0, 30px 30px;
+    background-size: 60px 60px;
+  }
+}
+
+.lyt-skill-list-02-item._level02 {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 20%, transparent 20%), radial-gradient(rgba(0, 128, 226, 0.3) 20%, transparent 20%);
+}
+
 @media (max-width: 950px) {
   .lyt-skill-list-02-item._level02 {
+    background-position: 0 0, 0.42105vw 0.42105vw;
+    background-size: 1.89474vw 1.89474vw;
     font-size: 1.62105vw;
   }
 }
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._level02 {
+    background-position: 0 0, 4px 4px;
+    background-size: 18px 18px;
     font-size: 1.54rem;
   }
+}
+
+.lyt-skill-list-02-item._level03 {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 15%, transparent 15%), radial-gradient(rgba(0, 128, 226, 0.3) 30%, transparent 30%);
+  background-position: 0 0, 1.26316vw 1.26316vw;
+  background-size: 2.52632vw 2.52632vw;
 }
 
 @media (max-width: 950px) {
@@ -812,18 +958,28 @@ button[disabled] {
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._level03 {
+    background-position: 0 0, 12px 12px;
+    background-size: 24px 24px;
     font-size: 2.1rem;
   }
 }
 
+.lyt-skill-list-02-item._level04 {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 13%, transparent 13%), radial-gradient(rgba(0, 128, 226, 0.3) 13%, transparent 13%);
+}
+
 @media (max-width: 950px) {
   .lyt-skill-list-02-item._level04 {
+    background-position: 0 0, 0.94737vw 0.94737vw;
+    background-size: 1.89474vw 1.89474vw;
     font-size: 2.8vw;
   }
 }
 
 @media (min-width: 951px) {
   .lyt-skill-list-02-item._level04 {
+    background-position: 0 0, 9px 9px;
+    background-size: 18px 18px;
     font-size: 2.66rem;
   }
 }
@@ -1067,6 +1223,76 @@ button[disabled] {
   .lyt-skill-list-02-item._improvement {
     left: 669px;
     top: 617px;
+  }
+}
+
+#aria-skill-l1::before {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 40%, transparent 40%), radial-gradient(rgba(0, 128, 226, 0.3) 40%, transparent 40%);
+  background-position: 0 0, 3.15789vw 3.15789vw;
+  background-size: 6.31579vw 6.31579vw;
+}
+
+@media (max-width: 768px) {
+  #aria-skill-l1::before {
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 951px) {
+  #aria-skill-l1::before {
+    background-position: 0 0, 30px 30px;
+    background-size: 60px 60px;
+  }
+}
+
+#aria-skill-l2::before {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 20%, transparent 20%), radial-gradient(rgba(0, 128, 226, 0.3) 20%, transparent 20%);
+}
+
+@media (max-width: 950px) {
+  #aria-skill-l2::before {
+    background-position: 0 0, 0.42105vw 0.42105vw;
+    background-size: 1.89474vw 1.89474vw;
+    font-size: 1.62105vw;
+  }
+}
+
+@media (min-width: 951px) {
+  #aria-skill-l2::before {
+    background-position: 0 0, 4px 4px;
+    background-size: 18px 18px;
+    font-size: 1.54rem;
+  }
+}
+
+#aria-skill-l3::before {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 15%, transparent 15%), radial-gradient(rgba(0, 128, 226, 0.3) 30%, transparent 30%);
+  background-position: 0 0, 1.26316vw 1.26316vw;
+  background-size: 2.52632vw 2.52632vw;
+}
+
+@media (min-width: 951px) {
+  #aria-skill-l3::before {
+    background-position: 0 0, 12px 12px;
+    background-size: 24px 24px;
+  }
+}
+
+#aria-skill-l4::before {
+  background-image: radial-gradient(rgba(0, 128, 226, 0.3) 13%, transparent 13%), radial-gradient(rgba(0, 128, 226, 0.3) 13%, transparent 13%);
+}
+
+@media (max-width: 950px) {
+  #aria-skill-l4::before {
+    background-position: 0 0, 0.94737vw 0.94737vw;
+    background-size: 1.89474vw 1.89474vw;
+  }
+}
+
+@media (min-width: 951px) {
+  #aria-skill-l4::before {
+    background-position: 0 0, 9px 9px;
+    background-size: 18px 18px;
   }
 }
 

@@ -40,8 +40,17 @@
 --------------------------------------------- */
 .mod-hdg-l3 {
   color: $main-color-01;
+  margin-top: 40px;
   padding-left: 1.2em;
   position: relative;
+
+  @media #{$media-sp} {
+    font-size: 2.2rem;
+  }
+
+  @media #{$media-pc} {
+    font-size: 2.8rem;
+  }
 
   &::before {
     background: linear-gradient(20deg, $main-color-01, $main-color-02);
@@ -63,12 +72,8 @@
     }
   }
 
-  @media #{$media-sp} {
-    font-size: 2.2rem;
-  }
-
-  @media #{$media-pc} {
-    font-size: 2.8rem;
+  + * {
+    margin-top: 30px;
   }
 }
 
@@ -89,6 +94,46 @@
 /* --------------------------------------------------
     List
 -------------------------------------------------- */
+
+/* .mod-list-legend
+--------------------------------------------- */
+.mod-list-legend {
+  // background-color: rgba($main-color-01, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 1.4rem;
+  justify-content: center;
+  line-height: $part-line-height;
+  list-style: none;
+  margin-left: -30px;
+  padding-left: 0;
+
+  > li {
+    align-items: center;
+    display: flex;
+    margin: 30px 0 0 30px;
+
+    &::before {
+      align-items: center;
+      background-color: #fff;
+      border: 3px solid $main-color-01;
+      border-radius: 50%;
+      color: $main-color-01;
+      content: '';
+      height: 50px;
+      justify-content: center;
+      margin-right: 10px;
+      padding-left: 0;
+      width: 50px;
+
+      @media #{$media-sp} {
+        border-width: 3px;
+        height: 30px;
+        width: 30px;
+      }
+    }
+  }
+}
 
 /* .mod-list-history
 --------------------------------------------- */
@@ -504,21 +549,6 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
   }
 
   &._level03 {
-    // background-image:
-    //   repeating-linear-gradient(
-    //     -45deg,
-    //     rgba($main-color-01, 0.3),
-    //     rgba($main-color-01, 0.3) 2px,
-    //     transparent 0,
-    //     transparent 13px
-    //   );
-
-    // background-image:
-    //   radial-gradient(rgba($main-color-01, 0.3) 25%, transparent 25%),
-    //   radial-gradient(rgba($main-color-01, 0.3) 25%, transparent 25%);
-    // background-position: 0 0, 9px 9px;
-    // background-size: 18px 18px;
-
     background-image:
       radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
       radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
@@ -758,6 +788,70 @@ $media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-paddi
       left: 669px;
       top: 617px;
     }
+  }
+}
+
+#aria-skill-l1::before {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%),
+    radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%);
+  background-position: 0 0, return-mod-lyt-skill-vw(30) return-mod-lyt-skill-vw(30);
+  background-size: return-mod-lyt-skill-vw(60) return-mod-lyt-skill-vw(60);
+
+  @media #{$media-sp} {
+    white-space: nowrap;
+  }
+
+  @media #{$media-mod-lyt-skill-wide} {
+    background-position: 0 0, 30px 30px;
+    background-size: 60px 60px;
+  }
+}
+
+#aria-skill-l2::before {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%),
+    radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%);
+
+  @media #{$media-mod-lyt-skill-max} {
+    background-position: 0 0, return-mod-lyt-skill-vw(4) return-mod-lyt-skill-vw(4);
+    background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
+    font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
+  }
+
+  @media #{$media-mod-lyt-skill-wide} {
+    background-position: 0 0, 4px 4px;
+    background-size: 18px 18px;
+    font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
+  }
+}
+
+#aria-skill-l3::before {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
+    radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
+  background-position: 0 0, return-mod-lyt-skill-vw(12) return-mod-lyt-skill-vw(12);
+  background-size: return-mod-lyt-skill-vw(24) return-mod-lyt-skill-vw(24);
+
+  @media #{$media-mod-lyt-skill-wide} {
+    background-position: 0 0, 12px 12px;
+    background-size: 24px 24px;
+  }
+}
+
+#aria-skill-l4::before {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%),
+    radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%);
+
+  @media #{$media-mod-lyt-skill-max} {
+    background-position: 0 0, return-mod-lyt-skill-vw(9) return-mod-lyt-skill-vw(9);
+    background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
+  }
+
+  @media #{$media-mod-lyt-skill-wide} {
+    background-position: 0 0, 9px 9px;
+    background-size: 18px 18px;
   }
 }
 
