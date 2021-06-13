@@ -18,6 +18,15 @@
 
 <body>
 <header id="str-header">
+<nav id="global-nav">
+<ul id="global-nav-list">
+<li><a href="#top">Home</a></li>
+<li><a href="#anc-profile">Profile</a></li>
+<li><a href="#anc-skill">Skill</a></li>
+<li><a href="#anc-history">History</a></li>
+<li><a href="#anc-vision">Vision</a></li>
+</ul>
+<!-- /#global-nav --></nav>
 <!-- /#str-header --></header>
 
 <main id="str-main">
@@ -31,56 +40,60 @@ Portfolio</h1>
 <!-- /#main-header --></header>
 
 <div class="str-inner">
-<h2 class="mod-hdg-l2"><span class="hdg-02-inner">Profile</span></h2>
-<div class="mod-lyt-profile">
-<b class="lyt-profile-ttl"><img class="lyt-profile-img" src="/img/img_profile.jpg">明野 恵理子（あけの えりこ）<br class="pc-disable">／フロントエンドエンジニア</b>
-<ul class="lyt-profile-list-01" alt="">
+<h2 id="anc-profile" class="mod-hdg-l2"><span class="hdg-02-inner">Profile</span></h2>
+
+<div id="profile-layout">
+<b id="profile-layout-ttl"><img id="profile-layout-img" src="/img/img_profile.jpg" alt="">明野 恵理子（あけの えりこ）<br class="pc-disable">／フロントエンドエンジニア</b>
+<ul id="profile-layout-list-01">
 <li>家族：夫、子供2人</li>
 <li>趣味：フルート、イラスト、編み物</li>
-<li>好き：ハムスター、フィギュアスケート、食事</li>
+<li>好き：ハムスター、フィギュアスケート観賞、食事</li>
 </ul>
-<ul class="lyt-profile-list-02">
+<ul id="profile-layout-list-02">
 <li><a href="https://twitter.com/akeri0212"><img src="/img/icon_twitter.svg" alt="Twitter @akeri0212"></a></li>
 <li><a href="https://qiita.com/akeri0212"><img src="/img/icon_qiita.svg" alt="Qiita @akeri0212"></a></li>
 <li><a href="https://github.com/akeri0212"><img src="/img/icon_github.svg" alt="Github @akeri0212"></a></li>
 </ul>
-<!-- /.mod-lyt-profile --></div>
+<!-- #profile-layout --></div>
 
-<h2 class="mod-hdg-l2"><span class="hdg-02-inner">Skill</span></h2>
-<div class="mod-lyt-skill">
-<ul class="lyt-skill-list-01">
-<li id="aria-skill-frontend" class="lyt-skill-list-01-item _frontend"><span class="lyt-skill-list-01-item-inner">フロントエンド</span></li>
-<li id="aria-skill-backend" class="lyt-skill-list-01-item _backend"><span class="lyt-skill-list-01-item-inner">バックエンド</span></li>
-<li id="aria-skill-design" class="lyt-skill-list-01-item _design"><span class="lyt-skill-list-01-item-inner">デザイン</span></li>
-<li id="aria-skill-others" class="lyt-skill-list-01-item _others"><span class="lyt-skill-list-01-item-inner">その他</span></li>
-<!-- /.lyt-skill-list-01 --></ul>
-<ul class="lyt-skill-list-02">
-<li class="lyt-skill-list-02-item _html _level05" aria-labelledby="aria-skill-frontend">HTML</li>
-<li class="lyt-skill-list-02-item _css _level05" aria-labelledby="aria-skill-frontend">CSS</li>
-<li class="lyt-skill-list-02-item _js _level04" aria-labelledby="aria-skill-frontend">JavaScript</li>
-<li class="lyt-skill-list-02-item _react _level01" aria-labelledby="aria-skill-frontend">React</li>
-<li class="lyt-skill-list-02-item _a11y _level04" aria-labelledby="aria-skill-frontend">アクセシビリティ</li>
-<li class="lyt-skill-list-02-item _gulp _level03" aria-labelledby="aria-skill-frontend">gulp</li>
-<li class="lyt-skill-list-02-item _git _level03" aria-labelledby="aria-skill-frontend aria-skill-backend">Git</li>
-<li class="lyt-skill-list-02-item _php _level03" aria-labelledby="aria-skill-backend">PHP</li>
-<li class="lyt-skill-list-02-item _mysql _level02" aria-labelledby="aria-skill-backend">MySQL</li>
-<li class="lyt-skill-list-02-item _phpmyadmin _level02" aria-labelledby="aria-skill-backend">php<br>MyAdmin</li>
-<li class="lyt-skill-list-02-item _composer _level02" aria-labelledby="aria-skill-backend">Composer</li>
-<li class="lyt-skill-list-02-item _docker _level01" aria-labelledby="aria-skill-backend">Docker</li>
-<li class="lyt-skill-list-02-item _ps _level04" aria-labelledby="aria-skill-design">Photoshop</li>
-<li class="lyt-skill-list-02-item _ai _level04" aria-labelledby="aria-skill-design">Illustrator</li>
-<li class="lyt-skill-list-02-item _management _level04" aria-labelledby="aria-skill-others">マネジメント</li>
-<li class="lyt-skill-list-02-item _improvement _level04" aria-labelledby="aria-skill-others">改善提案</li>
-<!-- /.lyt-skill-list-02 --></ul>
-<!-- /.mod-lyt-skill --></div>
+<h2 id="anc-skill" class="mod-hdg-l2"><span class="hdg-02-inner">Skill</span></h2>
 
-<ul class="mod-list-legend" aria-label="凡例">
+<div id="skill-layout">
+<ul id="skill-layout-list-01">
+<li id="aria-skill-frontend" class="skill-layout-list-01-item _frontend"><span class="skill-layout-list-01-item-inner">フロントエンド</span></li>
+<li id="aria-skill-backend" class="skill-layout-list-01-item _backend"><span class="skill-layout-list-01-item-inner">バックエンド</span></li>
+<li id="aria-skill-design" class="skill-layout-list-01-item _design"><span class="skill-layout-list-01-item-inner">デザイン</span></li>
+<li id="aria-skill-others" class="skill-layout-list-01-item _others"><span class="skill-layout-list-01-item-inner">その他</span></li>
+<!-- /#skill-layout-list-01 --></ul>
+<ul id="skill-layout-list-02">
+<li class="skill-layout-list-02-item _html" aria-labelledby="aria-skill-frontend aria-skill-l5">HTML</li>
+<li class="skill-layout-list-02-item _css" aria-labelledby="aria-skill-frontend aria-skill-l5">CSS</li>
+<li class="skill-layout-list-02-item _js" aria-labelledby="aria-skill-frontend aria-skill-l4">JavaScript</li>
+<li class="skill-layout-list-02-item _react" aria-labelledby="aria-skill-frontend aria-skill-l1">React</li>
+<li class="skill-layout-list-02-item _a11y" aria-labelledby="aria-skill-frontend aria-skill-design aria-skill-l4">アクセシビリティ</li>
+<li class="skill-layout-list-02-item _gulp" aria-labelledby="aria-skill-frontend aria-skill-l3">gulp</li>
+<li class="skill-layout-list-02-item _git" aria-labelledby="aria-skill-frontend aria-skill-backend aria-skill-l3">Git</li>
+<li class="skill-layout-list-02-item _php" aria-labelledby="aria-skill-backend aria-skill-l3">PHP</li>
+<li class="skill-layout-list-02-item _mysql" aria-labelledby="aria-skill-backend aria-skill-l2">MySQL</li>
+<li class="skill-layout-list-02-item _phpmyadmin" aria-labelledby="aria-skill-backend aria-skill-l2">php<br>MyAdmin</li>
+<li class="skill-layout-list-02-item _composer" aria-labelledby="aria-skill-backend aria-skill-l2">Composer</li>
+<li class="skill-layout-list-02-item _docker" aria-labelledby="aria-skill-backend aria-skill-l1">Docker</li>
+<li class="skill-layout-list-02-item _ps" aria-labelledby="aria-skill-design aria-skill-l4">Photoshop</li>
+<li class="skill-layout-list-02-item _ai" aria-labelledby="aria-skill-design aria-skill-l4">Illustrator</li>
+<li class="skill-layout-list-02-item _management" aria-labelledby="aria-skill-others aria-skill-l4">マネジメント</li>
+<li class="skill-layout-list-02-item _improvement" aria-labelledby="aria-skill-others aria-skill-l4">改善提案</li>
+<!-- /#skill-layout-list-02 --></ul>
+<!-- /#skill-layout- --></div>
+
+<div id="skill-list-legend">
+<ul id="skill-list-legend-inner" aria-label="凡例">
 <li id="aria-skill-l5">Level 5<br>自由自在</li>
 <li id="aria-skill-l4">Level 4<br>割とできる</li>
 <li id="aria-skill-l3">Level 3<br>調べながら実務可</li>
 <li id="aria-skill-l2">Level 2<br>チョットデキル</li>
 <li id="aria-skill-l1">Level 1<br>実務はまだ</li>
-<!-- /.mod-list-legend --></ul>
+</ul>
+<!-- /#skill-list-legend --></div>
 
 <h3 class="mod-hdg-l3">フロントエンド</h3>
 <p>10年以上Web制作会社にて様々な案件に対応した経験があり、最も得意です。<br>
@@ -107,75 +120,76 @@ Portfolio</h1>
 複数人で案件を回したり、急な欠勤が発生した自身の経験から、属人性を排除するルールの策定に興味があります。<br>
 過去には、知識を共有するための勉強会の企画、業務内容をまとめる場が無かった現場にポータルサイトを導入等、積極的に改善提案を行い実行しています。</p>
 
-<h2 class="mod-hdg-l2"><span class="hdg-02-inner">History</span></h2>
-<ul class="mod-list-history">
+<h2 id="anc-history" class="mod-hdg-l2"><span class="hdg-02-inner">History</span></h2>
+
+<ul id="history-list">
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">1985年</b><b class="list-history-ttl-event">誕生〜小学生</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">1985年</b><b class="history-list-ttl-event">誕生〜小学生</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_01.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_01.jpg" alt="">
+<div class="history-list-txt">
 <p>小さい頃から工作やお絵かきなど「作ること」が好きでした。<br>
 また、気になることは図鑑で調べたり、科学系番組を好んで視聴したりしたことで、物事の法則や因果関係を探るクセが身につきました。</p>
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">1997年</b><b class="list-history-ttl-event">中学生</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">1997年</b><b class="history-list-ttl-event">中学生</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_02.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_02.jpg" alt="">
+<div class="history-list-txt">
 <p>家のパソコンに入っていた Photoshop で遊びながら操作を覚えました。<br>
 学校では入学式の演奏に感動し、吹奏楽部に入部。以来フルートは人生をかけた趣味となりました。</p>
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2000年</b><b class="list-history-ttl-event">高校生</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2000年</b><b class="history-list-ttl-event">高校生</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_03.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_03.jpg" alt="">
+<div class="history-list-txt">
 <p>携帯電話をゲット。初のカラー液晶端末で、カラフルに動くチェーンメールに興味を持ちました。転送画面で表示されるタグが、HTMLとの出会いでした。<br>
 どのタグでどんな効果があるのか研究して、自分で使ったり友達に教えたりして楽しみました。</p>
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2003年</b><b class="list-history-ttl-event">大学生</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2003年</b><b class="history-list-ttl-event">大学生</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_04.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_04.jpg" alt="">
+<div class="history-list-txt">
 <p>3Dアニメーションをやってみたくて、クリエイティブを学ぶことが出来る大学に進学。趣味のイラストサイトを作ったのもこの頃。<br>
 結局「何かやりたい事と違う」と感じて3Dはほとんどやりませんでしたが、授業で出会った「<a href="https://www.amazon.co.jp/%E3%83%8E%E3%83%B3%E3%83%87%E3%82%B6%E3%82%A4%E3%83%8A%E3%83%BC%E3%82%BA%E3%83%BB%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E3%83%96%E3%83%83%E3%82%AF-%EF%BC%BB%E7%AC%AC4%E7%89%88%EF%BC%BD-Robin-Williams-ebook/dp/B01LW1BC2L">ノンデザイナーズ・デザインブック</a>」で、「芸大でデザインを学んで無くてもデザインって出来るんだ！」とデザイナーの仕事に興味を持つキッカケになりました。</p>
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2007年</b><b class="list-history-ttl-event">Web制作会社へ入社</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2007年</b><b class="history-list-ttl-event">Web制作会社へ入社</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_05.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_05.jpg" alt="">
+<div class="history-list-txt">
 <p>自身でサイト制作を経験したこともあり、web制作会社に応募して就職が決定。<br>
 初めはデザイナーとして勤務したものの、やはり現実は厳しく苦戦しました。並行して学習していたフロントエンド設計の方がすんなり理解出来る感覚があり、デザインもある程度出来るようになりましたが5年ほどハイブリットに経験した後はフロントエンドに注力するようになりました。</p>
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2011年</b><b class="list-history-ttl-event">チームリーダー就任</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2011年</b><b class="history-list-ttl-event">チームリーダー就任</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_06.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_06.jpg" alt="">
+<div class="history-list-txt">
 <p>部署内でいくつかある制作チームから独立し、チームリーダーを任せていただくようになりました。<br>
 徐々にリーダー業務に慣れるつもりだったものの、直後に事件が。<br>
 それまでお世話になったリーダーが突然の不幸で帰らぬ人となりました。<br>
@@ -183,87 +197,87 @@ Portfolio</h1>
 また、彼の元にいたチームメンバーのマネジメントも引き継ぎ、業務上は問題なく進めることができました。</p>
 <p>同年、社会人の吹奏楽バンドで出会った夫と結婚。東日本大震災も含め、忘れられない一年となりました。</p>
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2013年</b><b class="list-history-ttl-event">出向</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2013年</b><b class="history-list-ttl-event">出向</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_07.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_07.jpg" alt="">
+<div class="history-list-txt">
 連日12時間以上の勤務が続いて疲れを感じていた頃、証券会社への出向が決定。<br>
 出向先は定時退社できましたが、オペレーター業務を淡々とこなす日々でした。
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2014年</b><b class="list-history-ttl-event">第一子出産</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2014年</b><b class="history-list-ttl-event">第一子出産</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_08.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_08.jpg" alt="">
+<div class="history-list-txt">
 一年程お休みをいただき、育児に専念。<br>
 仕事から一度離れたことでリフレッシュし、改めて「仕事が好き」と認識できました。
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2015年</b><b class="list-history-ttl-event">時短で職場復帰</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2015年</b><b class="history-list-ttl-event">時短で職場復帰</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_09.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_09.jpg" alt="">
+<div class="history-list-txt">
 やはりひとりでフロントエンド設計を完結させるのは難しく、教育も兼ねて新人と分担し、コードレビューも積極的に行いました。
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2017年</b><b class="list-history-ttl-event">第二子出産</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2017年</b><b class="history-list-ttl-event">第二子出産</b>
 </div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2018年</b><b class="list-history-ttl-event">二度目の職場復帰</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2018年</b><b class="history-list-ttl-event">二度目の職場復帰</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_10.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_10.jpg" alt="">
+<div class="history-list-txt">
 後輩のサポート業務が多く、時短勤務に疑問を持ち始める。<br>
 良いチームメンバーに恵まれ、経験値を元に手助けできる充実感もあったものの転職を決意します。
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-year">2019年</b><b class="list-history-ttl-event">地元の求人広告代理店へ転職</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-year">2019年</b><b class="history-list-ttl-event">地元の求人広告代理店へ転職</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_11.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_11.jpg" alt="">
+<div class="history-list-txt">
 自宅から近く、通勤時間を短縮できることが決め手で入社。<br>
 エンジニア仲間が少ない環境、自社サービスの開発運用、バックエンドエンジニア業務など、前職で経験の無かったことばかりで毎日学びの連続です。
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
 <li>
-<div class="list-history-ttl">
-<b class="list-history-ttl-event">現在</b>
+<div class="history-list-ttl">
+<b class="history-list-ttl-event">現在</b>
 </div>
-<div class="list-history-cont">
-<img class="list-history-img" src="/img/img_history_12.jpg" alt="">
-<div class="list-history-txt">
+<div class="history-list-cont">
+<img class="history-list-img" src="/img/img_history_12.jpg" alt="">
+<div class="history-list-txt">
 予定より早くフルタイム勤務希望となったものの現職では難しい事、<br>
 技術的な相談ができるメンバーがいない事により、新しい勤務先を探しています。
 </div>
-<!-- /.list-history-cont --></div>
+<!-- /.history-list-cont --></div>
 </li>
-<!-- /.mod-list-history --></ul>
+<!-- /#history-list --></ul>
 
-<h2 class="mod-hdg-l2"><span class="hdg-02-inner">Vision</span></h2>
+<h2 id="anc-vision" class="mod-hdg-l2"><span class="hdg-02-inner">Vision</span></h2>
 <h3 class="mod-hdg-l3">新技術への挑戦</h3>
 <p>長らくフロントエンドに携わってきましたが、前職勤務年数が長いことから内容に偏りがあったと実感しています。<br>
 この機にモダンフレームワークの習得、スキルアップを目指しています。</p>

@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 /* ==================================================
-    03. Modules
+  03. Modules
 ================================================== */
 
 /* --------------------------------------------------
-    Heading
+  03-01. Common
 -------------------------------------------------- */
 
 /* .mod-hdg-l2
@@ -92,26 +92,595 @@
 }
 
 /* --------------------------------------------------
-    List
+  03-02. Unique
 -------------------------------------------------- */
 
-/* .mod-list-legend
+/* Profile
 --------------------------------------------- */
-.mod-list-legend {
-  // background-color: rgba($main-color-01, 0.1);
+#profile-layout {
+  min-height: 280px;
+  position: relative;
+
+  @media #{$media-sp} {
+  }
+
+  @media #{$media-pc} {
+    padding-left: 330px;
+  }
+}
+
+#profile-layout-ttl {
+  font-size: 2rem;
+
+  @media #{$media-sp} {
+    display: block;
+  }
+}
+
+#profile-layout-img {
+  border-radius: 50%;
+  height: 280px;
+  width: 280px;
+
+  @media #{$media-sp} {
+    display: block;
+    margin: 0 auto;
+  }
+
+  @media #{$media-pc} {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+}
+
+#profile-layout-list-01 {
+  list-style: none;
+  padding-left: 0;
+}
+
+#profile-layout-list-02 {
+  display: flex;
+  list-style: none;
+  margin-left: -15px;
+  padding-left: 0;
+
+  > li {
+    height: 50px;
+    margin-left: 15px;
+    width: 50px;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+/* Skill
+--------------------------------------------- */
+$skill-layout-max-width: 910px;
+
+/**
+ * 最大値からwv値を返す
+ * @param {number} $value - 要素の最大px値（単位なし）
+ * @return {string} - vw値
+ */
+@function return-mod-skill-layout-vw ($value) {
+  @return $value / return-num($skill-layout-max-width + $cont-padding-pc * 2) * 100vw;
+}
+
+$skill-layout-list-02-item-base-font-size-wide: 1.4rem; // 画面幅1200pxの時のデフォルトフォントサイズ
+$skill-layout-list-02-item-base-font-size: return-mod-skill-layout-vw(return-num($skill-layout-list-02-item-base-font-size-wide * 10)); // 14pxをベースに画面幅に合わせて可変
+$skill-layout-list-02-item-size: 7em;
+$media-skill-layout-max: '(max-width: #{$skill-layout-max-width + $cont-padding-pc * 2})'; // モジュール最大幅まで
+$media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding-pc * 2 + 1px})'; // モジュール最大幅以上
+
+@mixin skill-l1-pattern() {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%),
+    radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%);
+  background-position: 0 0, return-mod-skill-layout-vw(30) return-mod-skill-layout-vw(30);
+  background-size: return-mod-skill-layout-vw(60) return-mod-skill-layout-vw(60);
+
+  @media #{$media-skill-layout-wide} {
+    background-position: 0 0, 30px 30px;
+    background-size: 60px 60px;
+  }
+}
+
+@mixin skill-l2-pattern() {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%),
+    radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%);
+
+  @media #{$media-skill-layout-max} {
+    background-position: 0 0, return-mod-skill-layout-vw(4) return-mod-skill-layout-vw(4);
+    background-size: return-mod-skill-layout-vw(18) return-mod-skill-layout-vw(18);
+  }
+
+  @media #{$media-skill-layout-wide} {
+    background-position: 0 0, 4px 4px;
+    background-size: 18px 18px;
+  }
+}
+
+@mixin skill-l3-pattern() {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
+    radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
+  background-position: 0 0, return-mod-skill-layout-vw(12) return-mod-skill-layout-vw(12);
+  background-size: return-mod-skill-layout-vw(24) return-mod-skill-layout-vw(24);
+
+  @media #{$media-skill-layout-wide} {
+    background-position: 0 0, 12px 12px;
+    background-size: 24px 24px;
+  }
+}
+
+@mixin skill-l4-pattern() {
+  background-image:
+    radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%),
+    radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%);
+
+  @media #{$media-skill-layout-max} {
+    background-position: 0 0, return-mod-skill-layout-vw(9) return-mod-skill-layout-vw(9);
+    background-size: return-mod-skill-layout-vw(18) return-mod-skill-layout-vw(18);
+  }
+
+  @media #{$media-skill-layout-wide} {
+    background-position: 0 0, 9px 9px;
+    background-size: 18px 18px;
+  }
+}
+
+#skill-layout {
+  height: 916px;
+  margin: 0 auto;
+  max-width: $skill-layout-max-width;
+  position: relative;
+
+  @media #{$media-skill-layout-max} {
+    height: return-mod-skill-layout-vw(916);
+  }
+}
+
+#skill-layout-list-01 {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skill-layout-list-01-item {
+  background-color: rgba($main-color-02, 0.5);
+  border-radius: 50%;
+  color: $main-color-01;
+  font-weight: bold;
+  margin-top: 0;
+  padding-left: 0;
+  position: absolute;
+
+  @media #{$media-skill-layout-max} {
+    font-size: return-mod-skill-layout-vw(26);
+  }
+
+  @media #{$media-skill-layout-wide} {
+    font-size: 2.6rem;
+  }
+
+  &._frontend {
+    left: 0;
+    top: 0;
+
+    @media #{$media-skill-layout-max} {
+      height: return-mod-skill-layout-vw(580);
+      padding-top: return-mod-skill-layout-vw(10);
+      width: return-mod-skill-layout-vw(580);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      height: 580px;
+      padding-top: 10px;
+      width: 580px;
+    }
+  }
+
+  &._backend {
+    text-align: right;
+
+    @media #{$media-skill-layout-max} {
+      height: return-mod-skill-layout-vw(430);
+      left: return-mod-skill-layout-vw(479);
+      padding-top: return-mod-skill-layout-vw(20);
+      top: return-mod-skill-layout-vw(90);
+      width: return-mod-skill-layout-vw(430);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      height: 430px;
+      left: 479px;
+      padding-top: 20px;
+      top: 90px;
+      width: 430px;
+    }
+  }
+
+  &._design {
+    @media #{$media-skill-layout-max} {
+      height: return-mod-skill-layout-vw(450);
+      left: return-mod-skill-layout-vw(18);
+      padding-top: return-mod-skill-layout-vw(80);
+      top: return-mod-skill-layout-vw(450);
+      width: return-mod-skill-layout-vw(450);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      height: 450px;
+      left: 18px;
+      padding-top: 80px;
+      top: 450px;
+      width: 450px;
+    }
+  }
+
+  &._others {
+    text-align: right;
+
+    @media #{$media-skill-layout-max} {
+      height: return-mod-skill-layout-vw(390);
+      left: return-mod-skill-layout-vw(473);
+      padding-top: return-mod-skill-layout-vw(20);
+      top: return-mod-skill-layout-vw(526);
+      width: return-mod-skill-layout-vw(390);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      height: 390px;
+      left: 473px;
+      padding-top: 20px;
+      top: 526px;
+      width: 390px;
+    }
+  }
+}
+
+.skill-layout-list-01-item-inner {
+  border-bottom: 2px solid $main-color-02;
+}
+
+#skill-layout-list-02 {
+  list-style: none;
+  padding-left: 0;
+}
+
+.skill-layout-list-02-item {
+  align-items: center;
+  background-color: #fff;
+  border: 5px solid $main-color-01;
+  border-radius: 50%;
+  color: $main-color-01;
+  display: flex;
+  font-size: return-mod-skill-layout-vw(return-num($skill-layout-list-02-item-base-font-size-wide * 10));
+  font-weight: bold;
+  height: $skill-layout-list-02-item-size;
+  justify-content: center;
+  line-height: 1;
+  padding-left: 0;
+  position: absolute;
+  text-align: center;
+  text-shadow:
+    1px 1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px -1px 0 #fff,
+    1px 0 0 #fff,
+    0 1px 0 #fff,
+    -1px 0 0 #fff,
+    0 -1px 0 #fff;
+  width: $skill-layout-list-02-item-size;
+
+  @media #{$media-sp} {
+    border-width: 3px;
+  }
+
+  @media #{$media-skill-layout-wide} {
+    font-size: $skill-layout-list-02-item-base-font-size-wide;
+  }
+
+  &._html {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(54);
+      top: return-mod-skill-layout-vw(55);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 54px;
+      top: 55px;
+    }
+  }
+
+  &._css {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(283);
+      top: return-mod-skill-layout-vw(64);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 283px;
+      top: 64px;
+    }
+  }
+
+  &._js {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(36);
+      top: return-mod-skill-layout-vw(277);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 36px;
+      top: 277px;
+    }
+  }
+
+  &._react {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(232);
+      top: return-mod-skill-layout-vw(278);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 232px;
+      top: 278px;
+    }
+  }
+
+  &._a11y {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(160);
+      top: return-mod-skill-layout-vw(423);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 160px;
+      top: 423px;
+    }
+  }
+
+  &._gulp {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(325);
+      top: return-mod-skill-layout-vw(322);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 325px;
+      top: 322px;
+    }
+  }
+
+  &._git {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(459);
+      top: return-mod-skill-layout-vw(235);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 459px;
+      top: 235px;
+    }
+  }
+
+  &._php {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(590);
+      top: return-mod-skill-layout-vw(127);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 590px;
+      top: 127px;
+    }
+  }
+
+  &._mysql {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(759);
+      top: return-mod-skill-layout-vw(175);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 759px;
+      top: 175px;
+    }
+  }
+
+  &._phpmyadmin {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(759);
+      top: return-mod-skill-layout-vw(295);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 759px;
+      top: 295px;
+    }
+  }
+
+  &._composer {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(627);
+      top: return-mod-skill-layout-vw(293);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 627px;
+      top: 293px;
+    }
+  }
+
+  &._docker {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(610);
+      top: return-mod-skill-layout-vw(420);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 610px;
+      top: 420px;
+    }
+  }
+
+  &._ps {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(50);
+      top: return-mod-skill-layout-vw(617);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 50px;
+      top: 617px;
+    }
+  }
+
+  &._ai {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(251);
+      top: return-mod-skill-layout-vw(617);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 251px;
+      top: 617px;
+    }
+  }
+
+  &._management {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(477);
+      top: return-mod-skill-layout-vw(617);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 477px;
+      top: 617px;
+    }
+  }
+
+  &._improvement {
+    @media #{$media-skill-layout-max} {
+      left: return-mod-skill-layout-vw(669);
+      top: return-mod-skill-layout-vw(617);
+    }
+
+    @media #{$media-skill-layout-wide} {
+      left: 669px;
+      top: 617px;
+    }
+  }
+
+  &[aria-labelledby*=aria-skill-l1] {
+    @include skill-l1-pattern();
+
+    height: $skill-layout-list-02-item-size * 0.8;
+    width: $skill-layout-list-02-item-size * 0.8;
+
+    @media #{$media-sp} {
+      white-space: nowrap;
+    }
+  }
+
+  &[aria-labelledby*=aria-skill-l2] {
+    @include skill-l2-pattern();
+
+    @media #{$media-skill-layout-max} {
+      font-size: $skill-layout-list-02-item-base-font-size * 1.1;
+    }
+
+    @media #{$media-skill-layout-wide} {
+      font-size: $skill-layout-list-02-item-base-font-size-wide * 1.1;
+    }
+  }
+
+  &[aria-labelledby*=aria-skill-l3] {
+    @include skill-l3-pattern();
+
+    @media #{$media-skill-layout-max} {
+      font-size: $skill-layout-list-02-item-base-font-size * 1.5;
+    }
+
+    @media #{$media-skill-layout-wide} {
+      font-size: $skill-layout-list-02-item-base-font-size-wide * 1.5;
+    }
+  }
+
+  &[aria-labelledby*=aria-skill-l4] {
+    @include skill-l4-pattern();
+
+    @media #{$media-skill-layout-max} {
+      font-size: $skill-layout-list-02-item-base-font-size * 1.9;
+    }
+
+    @media #{$media-skill-layout-wide} {
+      font-size: $skill-layout-list-02-item-base-font-size-wide * 1.9;
+    }
+  }
+
+  &[aria-labelledby*=aria-skill-l5] {
+    @media #{$media-sp} {
+      margin-top: 10px;
+    }
+
+    @media #{$media-skill-layout-max} {
+      font-size: $skill-layout-list-02-item-base-font-size * 2.2;
+    }
+
+    @media #{$media-skill-layout-wide} {
+      font-size: $skill-layout-list-02-item-base-font-size-wide * 2.2;
+    }
+  }
+}
+
+#skill-list-legend {
+  border: 1px solid $main-color-02;
+  border-radius: 100px;
+  margin-top: 30px;
+  padding: 10px;
+
+  @media #{$media-sp} {
+    margin-top: 15px;
+  }
+
+  & + * {
+    margin-top: 80px;
+
+    @media #{$media-sp} {
+      margin-top: 40px;
+    }
+  }
+}
+
+#skill-list-legend-inner {
   display: flex;
   flex-wrap: wrap;
   font-size: 1.4rem;
   justify-content: center;
   line-height: $part-line-height;
   list-style: none;
-  margin-left: -30px;
+  margin: -5px 0 0 -30px;
   padding-left: 0;
+
+  @media #{$media-sp} {
+    font-size: 1.2rem;
+  }
 
   > li {
     align-items: center;
     display: flex;
-    margin: 30px 0 0 30px;
+    margin: 15px 0 0 30px;
+
+    @media #{$media-sp} {
+      margin: 15px 0 0 15px;
+    }
 
     &::before {
       align-items: center;
@@ -135,12 +704,28 @@
   }
 }
 
-/* .mod-list-history
---------------------------------------------- */
-$list-history-ttl-fs-big: 2.8rem;
-$list-history-ttl-fs-sml: 2rem;
+#aria-skill-l1::before {
+  @include skill-l1-pattern();
+}
 
-.mod-list-history {
+#aria-skill-l2::before {
+  @include skill-l2-pattern();
+}
+
+#aria-skill-l3::before {
+  @include skill-l3-pattern();
+}
+
+#aria-skill-l4::before {
+  @include skill-l4-pattern();
+}
+
+/* History
+--------------------------------------------- */
+$history-list-ttl-fs-big: 2.8rem;
+$history-list-ttl-fs-sml: 2rem;
+
+#history-list {
   list-style: none;
   padding-left: 0;
   position: relative;
@@ -164,11 +749,11 @@ $list-history-ttl-fs-sml: 2rem;
     width: 10px;
 
     @media #{$media-sp} {
-      top: $list-history-ttl-fs-sml;
+      top: $history-list-ttl-fs-sml;
     }
 
     @media #{$media-pc} {
-      top: $list-history-ttl-fs-big;
+      top: $history-list-ttl-fs-big;
     }
   }
 
@@ -196,45 +781,45 @@ $list-history-ttl-fs-sml: 2rem;
       width: 15px;
 
       @media #{$media-sp} {
-        top: calc(#{$list-history-ttl-fs-sml * $part-line-height / 2} - 7px);
+        top: calc(#{$history-list-ttl-fs-sml * $part-line-height / 2} - 7px);
       }
 
       @media #{$media-pc} {
-        top: calc(#{$list-history-ttl-fs-big * $part-line-height / 2} - 7px);
+        top: calc(#{$history-list-ttl-fs-big * $part-line-height / 2} - 7px);
       }
     }
   }
 }
 
-.list-history-ttl {
+.history-list-ttl {
   color: $main-color-01;
-  font-size: $list-history-ttl-fs-big;
+  font-size: $history-list-ttl-fs-big;
   line-height: $part-line-height;
 }
 
-.list-history-ttl-year {
+.history-list-ttl-year {
   @media #{$media-sp} {
     display: block;
-    font-size: $list-history-ttl-fs-sml;
+    font-size: $history-list-ttl-fs-sml;
   }
 
-  + .list-history-ttl-event {
+  + .history-list-ttl-event {
     @media #{$media-pc} {
       margin-left: 1em;
     }
   }
 }
 
-.list-history-ttl-event {
+.history-list-ttl-event {
   color: $main-color-01;
-  font-size: $list-history-ttl-fs-big;
+  font-size: $history-list-ttl-fs-big;
 
   @media #{$media-sp} {
     display: block;
   }
 }
 
-.list-history-cont {
+.history-list-cont {
   margin-top: 20px;
 
   @media #{$media-pc} {
@@ -242,7 +827,7 @@ $list-history-ttl-fs-sml: 2rem;
   }
 }
 
-.list-history-img {
+.history-list-img {
   border-radius: 50%;
   height: 200px;
   object-fit: cover;
@@ -255,7 +840,7 @@ $list-history-ttl-fs-sml: 2rem;
   }
 }
 
-.list-history-txt {
+.history-list-txt {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -277,583 +862,7 @@ $list-history-ttl-fs-sml: 2rem;
     Layout
 -------------------------------------------------- */
 
-/* .mod-lyt-profile
---------------------------------------------- */
-.mod-lyt-profile {
-  min-height: 280px;
-  position: relative;
 
-  @media #{$media-sp} {
-  }
-
-  @media #{$media-pc} {
-    padding-left: 330px;
-  }
-}
-
-.lyt-profile-ttl {
-  font-size: 2rem;
-
-  @media #{$media-sp} {
-    display: block;
-  }
-}
-
-.lyt-profile-img {
-  border-radius: 50%;
-  height: 280px;
-  width: 280px;
-
-  @media #{$media-sp} {
-    display: block;
-    margin: 0 auto;
-  }
-
-  @media #{$media-pc} {
-    left: 0;
-    position: absolute;
-    top: 0;
-  }
-}
-
-.lyt-profile-list-01 {
-  list-style: none;
-  padding-left: 0;
-}
-
-.lyt-profile-list-02 {
-  display: flex;
-  list-style: none;
-  margin-left: -15px;
-  padding-left: 0;
-
-  > li {
-    height: 50px;
-    margin-left: 15px;
-    width: 50px;
-
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
-
-/* .mod-lyt-skill
---------------------------------------------- */
-$mod-lyt-skill-max-width: 910px;
-
-/**
- * 最大値からwv値を返す
- * @param {number} $value - 要素の最大px値（単位なし）
- * @return {string} - vw値
- */
-@function return-mod-lyt-skill-vw ($value) {
-  @return $value / return-num($mod-lyt-skill-max-width + $cont-padding-pc * 2) * 100vw;
-}
-
-$lyt-skill-list-02-item-base-font-size-wide: 1.4rem; // 画面幅1200pxの時のデフォルトフォントサイズ
-$lyt-skill-list-02-item-base-font-size: return-mod-lyt-skill-vw(return-num($lyt-skill-list-02-item-base-font-size-wide * 10)); // 14pxをベースに画面幅に合わせて可変
-$lyt-skill-list-02-item-size: 7em;
-// $media-mod-lyt-skill-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
-$media-mod-lyt-skill-max: '(max-width: #{910px + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
-$media-mod-lyt-skill-wide: '(min-width: #{$mod-lyt-skill-max-width + $cont-padding-pc * 2 + 1px})'; // モジュール最大幅以上
-
-.mod-lyt-skill {
-  height: 916px;
-  margin: 0 auto;
-  max-width: $mod-lyt-skill-max-width;
-  position: relative;
-
-  @media #{$media-mod-lyt-skill-max} {
-    height: return-mod-lyt-skill-vw(916);
-  }
-}
-
-.lyt-skill-list-01 {
-  list-style: none;
-  padding-left: 0;
-}
-
-.lyt-skill-list-01-item {
-  background-color: rgba($main-color-02, 0.5);
-  border-radius: 50%;
-  color: $main-color-01;
-  font-weight: bold;
-  margin-top: 0;
-  padding-left: 0;
-  position: absolute;
-
-  @media #{$media-mod-lyt-skill-max} {
-    font-size: return-mod-lyt-skill-vw(26);
-  }
-
-  @media #{$media-mod-lyt-skill-wide} {
-    font-size: 2.6rem;
-  }
-
-  &._frontend {
-    left: 0;
-    top: 0;
-
-    @media #{$media-mod-lyt-skill-max} {
-      height: return-mod-lyt-skill-vw(580);
-      padding-top: return-mod-lyt-skill-vw(10);
-      width: return-mod-lyt-skill-vw(580);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      height: 580px;
-      padding-top: 10px;
-      width: 580px;
-    }
-  }
-
-  &._backend {
-    text-align: right;
-
-    @media #{$media-mod-lyt-skill-max} {
-      height: return-mod-lyt-skill-vw(430);
-      left: return-mod-lyt-skill-vw(479);
-      padding-top: return-mod-lyt-skill-vw(20);
-      top: return-mod-lyt-skill-vw(90);
-      width: return-mod-lyt-skill-vw(430);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      height: 430px;
-      left: 479px;
-      padding-top: 20px;
-      top: 90px;
-      width: 430px;
-    }
-  }
-
-  &._design {
-    @media #{$media-mod-lyt-skill-max} {
-      height: return-mod-lyt-skill-vw(450);
-      left: return-mod-lyt-skill-vw(18);
-      padding-top: return-mod-lyt-skill-vw(80);
-      top: return-mod-lyt-skill-vw(450);
-      width: return-mod-lyt-skill-vw(450);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      height: 450px;
-      left: 18px;
-      padding-top: 80px;
-      top: 450px;
-      width: 450px;
-    }
-  }
-
-  &._others {
-    text-align: right;
-
-    @media #{$media-mod-lyt-skill-max} {
-      height: return-mod-lyt-skill-vw(390);
-      left: return-mod-lyt-skill-vw(473);
-      padding-top: return-mod-lyt-skill-vw(20);
-      top: return-mod-lyt-skill-vw(526);
-      width: return-mod-lyt-skill-vw(390);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      height: 390px;
-      left: 473px;
-      padding-top: 20px;
-      top: 526px;
-      width: 390px;
-    }
-  }
-}
-
-.lyt-skill-list-01-item-inner {
-  border-bottom: 2px solid $main-color-02;
-}
-
-.lyt-skill-list-02 {
-  list-style: none;
-  padding-left: 0;
-}
-
-.lyt-skill-list-02-item {
-  align-items: center;
-  background-color: #fff;
-  border: 5px solid $main-color-01;
-  border-radius: 50%;
-  color: $main-color-01;
-  display: flex;
-  font-size: return-mod-lyt-skill-vw(return-num($lyt-skill-list-02-item-base-font-size-wide * 10));
-  font-weight: bold;
-  height: $lyt-skill-list-02-item-size;
-  justify-content: center;
-  line-height: 1;
-  padding-left: 0;
-  position: absolute;
-  text-align: center;
-  text-shadow:
-    1px 1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px -1px 0 #fff,
-    -1px -1px 0 #fff,
-    1px 0 0 #fff,
-    0 1px 0 #fff,
-    -1px 0 0 #fff,
-    0 -1px 0 #fff;
-  width: $lyt-skill-list-02-item-size;
-
-  @media #{$media-sp} {
-    border-width: 3px;
-  }
-
-  @media #{$media-mod-lyt-skill-wide} {
-    font-size: $lyt-skill-list-02-item-base-font-size-wide;
-  }
-
-  &._level01 {
-    background-image:
-      radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%),
-      radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%);
-    background-position: 0 0, return-mod-lyt-skill-vw(30) return-mod-lyt-skill-vw(30);
-    background-size: return-mod-lyt-skill-vw(60) return-mod-lyt-skill-vw(60);
-    height: $lyt-skill-list-02-item-size * 0.8;
-    width: $lyt-skill-list-02-item-size * 0.8;
-
-    @media #{$media-sp} {
-      white-space: nowrap;
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      background-position: 0 0, 30px 30px;
-      background-size: 60px 60px;
-    }
-  }
-
-  &._level02 {
-    background-image:
-      radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%),
-      radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%);
-
-    @media #{$media-mod-lyt-skill-max} {
-      background-position: 0 0, return-mod-lyt-skill-vw(4) return-mod-lyt-skill-vw(4);
-      background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      background-position: 0 0, 4px 4px;
-      background-size: 18px 18px;
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
-    }
-  }
-
-  &._level03 {
-    background-image:
-      radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
-      radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
-    background-position: 0 0, return-mod-lyt-skill-vw(12) return-mod-lyt-skill-vw(12);
-    background-size: return-mod-lyt-skill-vw(24) return-mod-lyt-skill-vw(24);
-
-    @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.5;
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      background-position: 0 0, 12px 12px;
-      background-size: 24px 24px;
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.5;
-    }
-  }
-
-  &._level04 {
-    background-image:
-      radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%),
-      radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%);
-
-    @media #{$media-mod-lyt-skill-max} {
-      background-position: 0 0, return-mod-lyt-skill-vw(9) return-mod-lyt-skill-vw(9);
-      background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
-      font-size: $lyt-skill-list-02-item-base-font-size * 1.9;
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      background-position: 0 0, 9px 9px;
-      background-size: 18px 18px;
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.9;
-    }
-  }
-
-  &._level05 {
-    @media #{$media-sp} {
-      margin-top: 10px;
-    }
-
-    @media #{$media-mod-lyt-skill-max} {
-      font-size: $lyt-skill-list-02-item-base-font-size * 2.2;
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      font-size: $lyt-skill-list-02-item-base-font-size-wide * 2.2;
-    }
-  }
-
-  &._html {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(54);
-      top: return-mod-lyt-skill-vw(55);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 54px;
-      top: 55px;
-    }
-  }
-
-  &._css {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(283);
-      top: return-mod-lyt-skill-vw(64);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 283px;
-      top: 64px;
-    }
-  }
-
-  &._js {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(36);
-      top: return-mod-lyt-skill-vw(277);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 36px;
-      top: 277px;
-    }
-  }
-
-  &._react {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(232);
-      top: return-mod-lyt-skill-vw(278);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 232px;
-      top: 278px;
-    }
-  }
-
-  &._a11y {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(160);
-      top: return-mod-lyt-skill-vw(423);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 160px;
-      top: 423px;
-    }
-  }
-
-  &._gulp {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(325);
-      top: return-mod-lyt-skill-vw(322);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 325px;
-      top: 322px;
-    }
-  }
-
-  &._git {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(459);
-      top: return-mod-lyt-skill-vw(235);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 459px;
-      top: 235px;
-    }
-  }
-
-  &._php {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(590);
-      top: return-mod-lyt-skill-vw(127);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 590px;
-      top: 127px;
-    }
-  }
-
-  &._mysql {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(759);
-      top: return-mod-lyt-skill-vw(175);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 759px;
-      top: 175px;
-    }
-  }
-
-  &._phpmyadmin {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(759);
-      top: return-mod-lyt-skill-vw(295);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 759px;
-      top: 295px;
-    }
-  }
-
-  &._composer {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(627);
-      top: return-mod-lyt-skill-vw(293);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 627px;
-      top: 293px;
-    }
-  }
-
-  &._docker {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(610);
-      top: return-mod-lyt-skill-vw(420);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 610px;
-      top: 420px;
-    }
-  }
-
-  &._ps {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(50);
-      top: return-mod-lyt-skill-vw(617);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 50px;
-      top: 617px;
-    }
-  }
-
-  &._ai {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(251);
-      top: return-mod-lyt-skill-vw(617);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 251px;
-      top: 617px;
-    }
-  }
-
-  &._management {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(477);
-      top: return-mod-lyt-skill-vw(617);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 477px;
-      top: 617px;
-    }
-  }
-
-  &._improvement {
-    @media #{$media-mod-lyt-skill-max} {
-      left: return-mod-lyt-skill-vw(669);
-      top: return-mod-lyt-skill-vw(617);
-    }
-
-    @media #{$media-mod-lyt-skill-wide} {
-      left: 669px;
-      top: 617px;
-    }
-  }
-}
-
-#aria-skill-l1::before {
-  background-image:
-    radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%),
-    radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%);
-  background-position: 0 0, return-mod-lyt-skill-vw(30) return-mod-lyt-skill-vw(30);
-  background-size: return-mod-lyt-skill-vw(60) return-mod-lyt-skill-vw(60);
-
-  @media #{$media-sp} {
-    white-space: nowrap;
-  }
-
-  @media #{$media-mod-lyt-skill-wide} {
-    background-position: 0 0, 30px 30px;
-    background-size: 60px 60px;
-  }
-}
-
-#aria-skill-l2::before {
-  background-image:
-    radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%),
-    radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%);
-
-  @media #{$media-mod-lyt-skill-max} {
-    background-position: 0 0, return-mod-lyt-skill-vw(4) return-mod-lyt-skill-vw(4);
-    background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
-    font-size: $lyt-skill-list-02-item-base-font-size * 1.1;
-  }
-
-  @media #{$media-mod-lyt-skill-wide} {
-    background-position: 0 0, 4px 4px;
-    background-size: 18px 18px;
-    font-size: $lyt-skill-list-02-item-base-font-size-wide * 1.1;
-  }
-}
-
-#aria-skill-l3::before {
-  background-image:
-    radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
-    radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
-  background-position: 0 0, return-mod-lyt-skill-vw(12) return-mod-lyt-skill-vw(12);
-  background-size: return-mod-lyt-skill-vw(24) return-mod-lyt-skill-vw(24);
-
-  @media #{$media-mod-lyt-skill-wide} {
-    background-position: 0 0, 12px 12px;
-    background-size: 24px 24px;
-  }
-}
-
-#aria-skill-l4::before {
-  background-image:
-    radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%),
-    radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%);
-
-  @media #{$media-mod-lyt-skill-max} {
-    background-position: 0 0, return-mod-lyt-skill-vw(9) return-mod-lyt-skill-vw(9);
-    background-size: return-mod-lyt-skill-vw(18) return-mod-lyt-skill-vw(18);
-  }
-
-  @media #{$media-mod-lyt-skill-wide} {
-    background-position: 0 0, 9px 9px;
-    background-size: 18px 18px;
-  }
-}
 
 /* --------------------------------------------------
     Support
