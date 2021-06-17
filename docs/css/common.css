@@ -4,6 +4,7 @@
 *   01. Base
 *       01-01. Reset
 *       01-02. Default
+*       01-03. Keyframes
 *   02. Frame
 *       02-01. Structure
 *           02-01-01. Header
@@ -27,16 +28,15 @@
  */
 
 /* ==================================================
-    01. Base
+  01. Base
 ================================================== */
 
 /* --------------------------------------------------
-    01-01. Reset
+  01-01. Reset
 -------------------------------------------------- */
 html {
   font-family: sans-serif;
   overflow-y: scroll;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -64,7 +64,7 @@ address {
 }
 
 /* --------------------------------------------------
-    01-02. Default
+  01-02. Default
 -------------------------------------------------- */
 html {
   font-size: 62.5%;
@@ -214,6 +214,36 @@ button[disabled] {
   cursor: default;
 }
 
+/* --------------------------------------------------
+    01-03. Keyframes
+-------------------------------------------------- */
+@-webkit-keyframes FadeIn01 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+@keyframes FadeIn01 {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
 /* ==================================================
   02. Frame
 ================================================== */
@@ -248,18 +278,49 @@ button[disabled] {
 --------------------------------------------- */
 #str-header {
   height: 100%;
-  padding: 10vh 0;
+  padding: 10vh 0 25vh;
   position: fixed;
   right: 0;
   top: 0;
-  width: 100px;
-  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  #str-header {
+    width: 45%;
+  }
+}
+
+@media (min-width: 769px) {
+  #str-header {
+    width: 100px;
+  }
+}
+
+@media (min-width: 769px) {
+  #spmenu-btn {
+    display: none;
+  }
 }
 
 /* 02-01-02. Navigation
 --------------------------------------------- */
 #global-nav {
   height: 100%;
+}
+
+@media (max-width: 768px) {
+  #global-nav {
+    background-color: rgba(51, 51, 51, 0.5);
+    display: none;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+}
+
+@media (max-width: 768px) {
+  #global-nav.is-open {
+    display: block;
+  }
 }
 
 #global-nav-list {
@@ -316,8 +377,17 @@ button[disabled] {
   width: 5em;
 }
 
+#global-nav-list > li a:hover {
+  background-color: #92c0f1;
+  opacity: 1;
+}
+
 /* 02-01-03. Main
 --------------------------------------------- */
+#str-main {
+  padding-bottom: 100px;
+}
+
 #main-header {
   background-image: linear-gradient(110deg, #0080e2, #0ce5ff);
   color: #fff;
@@ -353,6 +423,71 @@ button[disabled] {
 
 /* 02-01-03. Footer
 --------------------------------------------- */
+#str-footer {
+  bottom: 0;
+  height: 15vh;
+  left: 0;
+  position: fixed;
+  width: 100%;
+}
+
+#btn-to-top {
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  background-color: #0080e2;
+  border-radius: 50%;
+  bottom: 37px;
+  color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1.4rem;
+  height: 4em;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-right: -2em;
+  overflow: hidden;
+  position: fixed;
+  position: absolute;
+  right: 50px;
+  top: 0;
+  width: 4em;
+}
+
+#btn-to-top::after {
+  background: url("/img/icon_arrow.svg") 0 0 no-repeat;
+  background-size: contain;
+  content: '';
+  display: block;
+  height: 14px;
+  left: calc(50% - 12px);
+  position: absolute;
+  top: 0.7em;
+  width: 24px;
+}
+
+.js-enabled #btn-to-top {
+  opacity: 0;
+}
+
+.js-enabled #btn-to-top.is-fadein {
+  -webkit-animation: FadeIn01 ease-out 0.3s;
+  animation: FadeIn01 ease-out 0.3s;
+}
+
+.js-enabled #btn-to-top.is-show {
+  opacity: 1;
+}
+
+.js-enabled #btn-to-top.is-show:hover {
+  opacity: 0.5;
+}
+
+.js-enabled #btn-to-top.is-fadeout {
+  animation: FadeIn01 ease-out 0.3s reverse;
+}
 
 /* --------------------------------------------------
   02-02. Area
@@ -369,6 +504,13 @@ button[disabled] {
 /* --------------------------------------------------
   03-01. Common
 -------------------------------------------------- */
+
+/* .mod-icon-blank
+--------------------------------------------- */
+.mod-icon-blank {
+  margin: 0 5px;
+  width: 13px;
+}
 
 /* .mod-hdg-l2
 --------------------------------------------- */

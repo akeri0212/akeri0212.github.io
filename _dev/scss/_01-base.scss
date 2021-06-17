@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
 /* ==================================================
-    01. Base
+  01. Base
 ================================================== */
 
 /* --------------------------------------------------
-    01-01. Reset
+  01-01. Reset
 -------------------------------------------------- */
 html {
   font-family: $base-font-family;
   overflow-y: scroll;
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 
 body {
@@ -37,7 +37,7 @@ address {
 }
 
 /* --------------------------------------------------
-    01-02. Default
+  01-02. Default
 -------------------------------------------------- */
 
 html {
@@ -77,8 +77,6 @@ iframe {
   border-width: 0;
   max-width: 100%;
 }
-
-// @include setLink(); // a, a:visited, a:hover, a:active
 
 h1,
 h2,
@@ -195,5 +193,21 @@ button {
 
   &[disabled] {
     cursor: default;
+  }
+}
+
+/* --------------------------------------------------
+    01-03. Keyframes
+-------------------------------------------------- */
+
+@keyframes FadeIn01 {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
