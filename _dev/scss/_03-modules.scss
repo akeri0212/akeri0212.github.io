@@ -22,6 +22,7 @@
   font-family: $heading-font-family;
   font-weight: 500;
   margin-top: 60px;
+  outline: none;
   text-align: center;
 
   @media #{$media-sp} {
@@ -83,6 +84,10 @@
   + * {
     margin-top: 30px;
   }
+}
+
+a[href^='#'] {
+  color: #f00;
 }
 
 /* .mod-hdg-l4
@@ -167,26 +172,46 @@
 $skill-layout-max-width: 910px;
 
 /**
- * 最大値からwv値を返す
+ * 最大値から割合を返す
  * @param {number} $value - 要素の最大px値（単位なし）
- * @return {string} - vw値
+ * @param {string} $media - pc or sp
+ * @return {string} - 割合の計算式 calc(...)
  */
-@function return-mod-skill-layout-vw ($value) {
-  @return $value / return-num($skill-layout-max-width + $cont-padding-pc * 2) * 100vw;
+
+@function return-mod-skill-layout-percentage ($value, $media) {
+  $padding: 0;
+
+  @if ($media == 'sp') {
+    $padding: $cont-padding-sp;
+  }
+  @else if ($media == 'pc') {
+    $padding: $cont-padding-pc;
+  }
+
+  @return calc((100vw - #{$padding * 2}) * (#{$value / return-num($skill-layout-max-width)}));
 }
 
 $skill-layout-list-02-item-base-font-size-wide: 1.4rem; // 画面幅1200pxの時のデフォルトフォントサイズ
-$skill-layout-list-02-item-base-font-size: return-mod-skill-layout-vw(return-num($skill-layout-list-02-item-base-font-size-wide * 10)); // 14pxをベースに画面幅に合わせて可変
+$skill-layout-list-02-item-base-font-size-sp: return-mod-skill-layout-percentage(return-num($skill-layout-list-02-item-base-font-size-wide * 10), 'sp'); // 14pxをベースに画面幅に合わせて可変
+$skill-layout-list-02-item-base-font-size-pc: return-mod-skill-layout-percentage(return-num($skill-layout-list-02-item-base-font-size-wide * 10), 'pc'); // 14pxをベースに画面幅に合わせて可変
 $skill-layout-list-02-item-size: 7em;
-$media-skill-layout-max: '(max-width: #{$skill-layout-max-width + $cont-padding-pc * 2})'; // モジュール最大幅まで
+$media-skill-layout-max: '(min-width: #{$break-point-01 + 1px}) and (max-width: #{$skill-layout-max-width + $cont-padding-pc * 2})'; // ブレイクポイント ～ モジュール最大幅
 $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding-pc * 2 + 1px})'; // モジュール最大幅以上
 
 @mixin skill-l1-pattern() {
   background-image:
     radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%),
     radial-gradient(rgba($main-color-01, 0.3) 40%, transparent 40%);
-  background-position: 0 0, return-mod-skill-layout-vw(30) return-mod-skill-layout-vw(30);
-  background-size: return-mod-skill-layout-vw(60) return-mod-skill-layout-vw(60);
+
+  @media #{$media-sp} {
+    background-position: 0 0, return-mod-skill-layout-percentage(30, sp) return-mod-skill-layout-percentage(30, sp);
+    background-size: return-mod-skill-layout-percentage(60, sp) return-mod-skill-layout-percentage(60, sp);
+  }
+
+  @media #{$media-skill-layout-max} {
+    background-position: 0 0, return-mod-skill-layout-percentage(30, pc) return-mod-skill-layout-percentage(30, pc);
+    background-size: return-mod-skill-layout-percentage(60, pc) return-mod-skill-layout-percentage(60, pc);
+  }
 
   @media #{$media-skill-layout-wide} {
     background-position: 0 0, 30px 30px;
@@ -199,9 +224,14 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
     radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%),
     radial-gradient(rgba($main-color-01, 0.3) 20%, transparent 20%);
 
+  @media #{$media-sp} {
+    background-position: 0 0, return-mod-skill-layout-percentage(4, sp) return-mod-skill-layout-percentage(4, sp);
+    background-size: return-mod-skill-layout-percentage(18, sp) return-mod-skill-layout-percentage(18, sp);
+  }
+
   @media #{$media-skill-layout-max} {
-    background-position: 0 0, return-mod-skill-layout-vw(4) return-mod-skill-layout-vw(4);
-    background-size: return-mod-skill-layout-vw(18) return-mod-skill-layout-vw(18);
+    background-position: 0 0, return-mod-skill-layout-percentage(4, pc) return-mod-skill-layout-percentage(4, pc);
+    background-size: return-mod-skill-layout-percentage(18, pc) return-mod-skill-layout-percentage(18, pc);
   }
 
   @media #{$media-skill-layout-wide} {
@@ -214,8 +244,18 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   background-image:
     radial-gradient(rgba($main-color-01, 0.3) 15%, transparent 15%),
     radial-gradient(rgba($main-color-01, 0.3) 30%, transparent 30%);
-  background-position: 0 0, return-mod-skill-layout-vw(12) return-mod-skill-layout-vw(12);
-  background-size: return-mod-skill-layout-vw(24) return-mod-skill-layout-vw(24);
+  background-position: 0 0, return-mod-skill-layout-percentage(12, pc) return-mod-skill-layout-percentage(12, pc);
+  background-size: return-mod-skill-layout-percentage(24, pc) return-mod-skill-layout-percentage(24, pc);
+
+  @media #{$media-sp} {
+    background-position: 0 0, return-mod-skill-layout-percentage(12, sp) return-mod-skill-layout-percentage(12, sp);
+    background-size: return-mod-skill-layout-percentage(24, sp) return-mod-skill-layout-percentage(24, sp);
+  }
+
+  @media #{$media-skill-layout-max} {
+    background-position: 0 0, return-mod-skill-layout-percentage(12, pc) return-mod-skill-layout-percentage(12, pc);
+    background-size: return-mod-skill-layout-percentage(24, pc) return-mod-skill-layout-percentage(24, pc);
+  }
 
   @media #{$media-skill-layout-wide} {
     background-position: 0 0, 12px 12px;
@@ -228,9 +268,14 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
     radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%),
     radial-gradient(rgba($main-color-01, 0.3) 13%, transparent 13%);
 
+  @media #{$media-sp} {
+    background-position: 0 0, return-mod-skill-layout-percentage(9, sp) return-mod-skill-layout-percentage(9, sp);
+    background-size: return-mod-skill-layout-percentage(18, sp) return-mod-skill-layout-percentage(18, sp);
+  }
+
   @media #{$media-skill-layout-max} {
-    background-position: 0 0, return-mod-skill-layout-vw(9) return-mod-skill-layout-vw(9);
-    background-size: return-mod-skill-layout-vw(18) return-mod-skill-layout-vw(18);
+    background-position: 0 0, return-mod-skill-layout-percentage(9, pc) return-mod-skill-layout-percentage(9, pc);
+    background-size: return-mod-skill-layout-percentage(18, pc) return-mod-skill-layout-percentage(18, pc);
   }
 
   @media #{$media-skill-layout-wide} {
@@ -245,8 +290,12 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   max-width: $skill-layout-max-width;
   position: relative;
 
+  @media #{$media-sp} {
+    height: return-mod-skill-layout-percentage(916, sp);
+  }
+
   @media #{$media-skill-layout-max} {
-    height: return-mod-skill-layout-vw(916);
+    height: return-mod-skill-layout-percentage(916, pc);
   }
 }
 
@@ -264,8 +313,12 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   padding-left: 0;
   position: absolute;
 
+  @media #{$media-sp} {
+    font-size: return-mod-skill-layout-percentage(26, sp);
+  }
+
   @media #{$media-skill-layout-max} {
-    font-size: return-mod-skill-layout-vw(26);
+    font-size: return-mod-skill-layout-percentage(26, pc);
   }
 
   @media #{$media-skill-layout-wide} {
@@ -276,10 +329,16 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
     left: 0;
     top: 0;
 
+    @media #{$media-sp} {
+      height: return-mod-skill-layout-percentage(580, sp);
+      padding-top: return-mod-skill-layout-percentage(10, sp);
+      width: return-mod-skill-layout-percentage(580, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      height: return-mod-skill-layout-vw(580);
-      padding-top: return-mod-skill-layout-vw(10);
-      width: return-mod-skill-layout-vw(580);
+      height: return-mod-skill-layout-percentage(580, pc);
+      padding-top: return-mod-skill-layout-percentage(10, pc);
+      width: return-mod-skill-layout-percentage(580, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -292,12 +351,20 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   &._backend {
     text-align: right;
 
+    @media #{$media-sp} {
+      height: return-mod-skill-layout-percentage(430, sp);
+      left: return-mod-skill-layout-percentage(479, sp);
+      padding-top: return-mod-skill-layout-percentage(20, sp);
+      top: return-mod-skill-layout-percentage(90, sp);
+      width: return-mod-skill-layout-percentage(430, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      height: return-mod-skill-layout-vw(430);
-      left: return-mod-skill-layout-vw(479);
-      padding-top: return-mod-skill-layout-vw(20);
-      top: return-mod-skill-layout-vw(90);
-      width: return-mod-skill-layout-vw(430);
+      height: return-mod-skill-layout-percentage(430, pc);
+      left: return-mod-skill-layout-percentage(479, pc);
+      padding-top: return-mod-skill-layout-percentage(20, pc);
+      top: return-mod-skill-layout-percentage(90, pc);
+      width: return-mod-skill-layout-percentage(430, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -310,12 +377,21 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._design {
+
+    @media #{$media-sp} {
+      height: return-mod-skill-layout-percentage(450, sp);
+      left: return-mod-skill-layout-percentage(18, sp);
+      padding-top: return-mod-skill-layout-percentage(80, sp);
+      top: return-mod-skill-layout-percentage(450, sp);
+      width: return-mod-skill-layout-percentage(450, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      height: return-mod-skill-layout-vw(450);
-      left: return-mod-skill-layout-vw(18);
-      padding-top: return-mod-skill-layout-vw(80);
-      top: return-mod-skill-layout-vw(450);
-      width: return-mod-skill-layout-vw(450);
+      height: return-mod-skill-layout-percentage(450, pc);
+      left: return-mod-skill-layout-percentage(18, pc);
+      padding-top: return-mod-skill-layout-percentage(80, pc);
+      top: return-mod-skill-layout-percentage(450, pc);
+      width: return-mod-skill-layout-percentage(450, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -330,12 +406,20 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   &._others {
     text-align: right;
 
+    @media #{$media-sp} {
+      height: return-mod-skill-layout-percentage(390, sp);
+      left: return-mod-skill-layout-percentage(473, sp);
+      padding-top: return-mod-skill-layout-percentage(20, sp);
+      top: return-mod-skill-layout-percentage(526, sp);
+      width: return-mod-skill-layout-percentage(390, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      height: return-mod-skill-layout-vw(390);
-      left: return-mod-skill-layout-vw(473);
-      padding-top: return-mod-skill-layout-vw(20);
-      top: return-mod-skill-layout-vw(526);
-      width: return-mod-skill-layout-vw(390);
+      height: return-mod-skill-layout-percentage(390, pc);
+      left: return-mod-skill-layout-percentage(473, pc);
+      padding-top: return-mod-skill-layout-percentage(20, pc);
+      top: return-mod-skill-layout-percentage(526, pc);
+      width: return-mod-skill-layout-percentage(390, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -364,7 +448,6 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   border-radius: 50%;
   color: $main-color-01;
   display: flex;
-  font-size: return-mod-skill-layout-vw(return-num($skill-layout-list-02-item-base-font-size-wide * 10));
   font-weight: bold;
   height: $skill-layout-list-02-item-size;
   justify-content: center;
@@ -384,7 +467,11 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   width: $skill-layout-list-02-item-size;
 
   @media #{$media-sp} {
-    border-width: 3px;
+    font-size: return-mod-skill-layout-percentage(return-num($skill-layout-list-02-item-base-font-size-wide * 10), sp);
+  }
+
+  @media #{$media-skill-layout-max} {
+    font-size: return-mod-skill-layout-percentage(return-num($skill-layout-list-02-item-base-font-size-wide * 10), pc);
   }
 
   @media #{$media-skill-layout-wide} {
@@ -392,9 +479,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._html {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(54, sp);
+      top: return-mod-skill-layout-percentage(55, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(54);
-      top: return-mod-skill-layout-vw(55);
+      left: return-mod-skill-layout-percentage(54, pc);
+      top: return-mod-skill-layout-percentage(55, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -404,9 +497,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._css {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(283, sp);
+      top: return-mod-skill-layout-percentage(64, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(283);
-      top: return-mod-skill-layout-vw(64);
+      left: return-mod-skill-layout-percentage(283, pc);
+      top: return-mod-skill-layout-percentage(64, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -416,9 +515,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._js {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(36, sp);
+      top: return-mod-skill-layout-percentage(277, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(36);
-      top: return-mod-skill-layout-vw(277);
+      left: return-mod-skill-layout-percentage(36, pc);
+      top: return-mod-skill-layout-percentage(277, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -428,9 +533,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._react {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(232, sp);
+      top: return-mod-skill-layout-percentage(278, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(232);
-      top: return-mod-skill-layout-vw(278);
+      left: return-mod-skill-layout-percentage(232, pc);
+      top: return-mod-skill-layout-percentage(278, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -440,9 +551,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._a11y {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(160, sp);
+      top: return-mod-skill-layout-percentage(423, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(160);
-      top: return-mod-skill-layout-vw(423);
+      left: return-mod-skill-layout-percentage(160, pc);
+      top: return-mod-skill-layout-percentage(423, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -452,9 +569,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._gulp {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(325, sp);
+      top: return-mod-skill-layout-percentage(322, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(325);
-      top: return-mod-skill-layout-vw(322);
+      left: return-mod-skill-layout-percentage(325, pc);
+      top: return-mod-skill-layout-percentage(322, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -464,9 +587,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._git {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(459, sp);
+      top: return-mod-skill-layout-percentage(235, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(459);
-      top: return-mod-skill-layout-vw(235);
+      left: return-mod-skill-layout-percentage(459, pc);
+      top: return-mod-skill-layout-percentage(235, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -476,9 +605,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._php {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(590, sp);
+      top: return-mod-skill-layout-percentage(127, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(590);
-      top: return-mod-skill-layout-vw(127);
+      left: return-mod-skill-layout-percentage(590, pc);
+      top: return-mod-skill-layout-percentage(127, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -488,9 +623,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._mysql {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(759, sp);
+      top: return-mod-skill-layout-percentage(175, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(759);
-      top: return-mod-skill-layout-vw(175);
+      left: return-mod-skill-layout-percentage(759, pc);
+      top: return-mod-skill-layout-percentage(175, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -500,9 +641,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._phpmyadmin {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(759, sp);
+      top: return-mod-skill-layout-percentage(295, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(759);
-      top: return-mod-skill-layout-vw(295);
+      left: return-mod-skill-layout-percentage(759, pc);
+      top: return-mod-skill-layout-percentage(295, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -512,9 +659,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._composer {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(627, sp);
+      top: return-mod-skill-layout-percentage(293, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(627);
-      top: return-mod-skill-layout-vw(293);
+      left: return-mod-skill-layout-percentage(627, pc);
+      top: return-mod-skill-layout-percentage(293, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -524,9 +677,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._docker {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(610, sp);
+      top: return-mod-skill-layout-percentage(420, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(610);
-      top: return-mod-skill-layout-vw(420);
+      left: return-mod-skill-layout-percentage(610, pc);
+      top: return-mod-skill-layout-percentage(420, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -536,9 +695,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._ps {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(50, sp);
+      top: return-mod-skill-layout-percentage(617, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(50);
-      top: return-mod-skill-layout-vw(617);
+      left: return-mod-skill-layout-percentage(50, pc);
+      top: return-mod-skill-layout-percentage(617, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -548,9 +713,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._ai {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(251, sp);
+      top: return-mod-skill-layout-percentage(617, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(251);
-      top: return-mod-skill-layout-vw(617);
+      left: return-mod-skill-layout-percentage(251, pc);
+      top: return-mod-skill-layout-percentage(617, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -560,9 +731,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._management {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(477, sp);
+      top: return-mod-skill-layout-percentage(617, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(477);
-      top: return-mod-skill-layout-vw(617);
+      left: return-mod-skill-layout-percentage(477, pc);
+      top: return-mod-skill-layout-percentage(617, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -572,9 +749,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &._improvement {
+
+    @media #{$media-sp} {
+      left: return-mod-skill-layout-percentage(669, sp);
+      top: return-mod-skill-layout-percentage(617, sp);
+    }
+
     @media #{$media-skill-layout-max} {
-      left: return-mod-skill-layout-vw(669);
-      top: return-mod-skill-layout-vw(617);
+      left: return-mod-skill-layout-percentage(669, pc);
+      top: return-mod-skill-layout-percentage(617, pc);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -584,6 +767,7 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &[aria-labelledby*=aria-skill-l1] {
+
     @include skill-l1-pattern();
 
     height: $skill-layout-list-02-item-size * 0.8;
@@ -595,10 +779,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &[aria-labelledby*=aria-skill-l2] {
+
     @include skill-l2-pattern();
 
+    @media #{$media-sp} {
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-sp} * 1.1);
+    }
+
     @media #{$media-skill-layout-max} {
-      font-size: $skill-layout-list-02-item-base-font-size * 1.1;
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-pc} * 1.1);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -607,10 +796,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &[aria-labelledby*=aria-skill-l3] {
+
     @include skill-l3-pattern();
 
+    @media #{$media-sp} {
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-sp} * 1.5);
+    }
+
     @media #{$media-skill-layout-max} {
-      font-size: $skill-layout-list-02-item-base-font-size * 1.5;
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-pc} * 1.5);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -619,10 +813,15 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &[aria-labelledby*=aria-skill-l4] {
+
     @include skill-l4-pattern();
 
+    @media #{$media-sp} {
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-sp} * 1.9);
+    }
+
     @media #{$media-skill-layout-max} {
-      font-size: $skill-layout-list-02-item-base-font-size * 1.9;
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-pc} * 1.9);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -631,12 +830,14 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
   }
 
   &[aria-labelledby*=aria-skill-l5] {
+
     @media #{$media-sp} {
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-sp} * 2.2);
       margin-top: 10px;
     }
 
     @media #{$media-skill-layout-max} {
-      font-size: $skill-layout-list-02-item-base-font-size * 2.2;
+      font-size: calc(#{$skill-layout-list-02-item-base-font-size-pc} * 2.2);
     }
 
     @media #{$media-skill-layout-wide} {
@@ -710,18 +911,22 @@ $media-skill-layout-wide: '(min-width: #{$skill-layout-max-width + $cont-padding
 }
 
 #aria-skill-l1::before {
+
   @include skill-l1-pattern();
 }
 
 #aria-skill-l2::before {
+
   @include skill-l2-pattern();
 }
 
 #aria-skill-l3::before {
+
   @include skill-l3-pattern();
 }
 
 #aria-skill-l4::before {
+
   @include skill-l4-pattern();
 }
 
@@ -737,10 +942,6 @@ $history-list-ttl-fs-sml: 2rem;
 
   @media #{$media-sp} {
     margin: 0 15px;
-  }
-
-  @media #{$media-pc} {
-    margin: 0 30px;
   }
 
   &::before {
@@ -803,12 +1004,14 @@ $history-list-ttl-fs-sml: 2rem;
 }
 
 .history-list-ttl-year {
+
   @media #{$media-sp} {
     display: block;
     font-size: $history-list-ttl-fs-sml;
   }
 
   + .history-list-ttl-event {
+
     @media #{$media-pc} {
       margin-left: 1em;
     }
@@ -874,6 +1077,7 @@ $history-list-ttl-fs-sml: 2rem;
 -------------------------------------------------- */
 
 .pc-disable {
+
   @media #{$media-pc} {
     display: none;
   }

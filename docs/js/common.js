@@ -25,17 +25,16 @@
 
 
 	/*==================================================
-		汎用機能
+		実行
 	==================================================*/
+
+	/* ハンバーガーメニュー
+	----------------------------------------*/
+	toggleSpmenu();
 
 	/* スムーススクロール
 	----------------------------------------*/
 	smoothScroll('a[href^="#anc"], a[href="#top"]');
-
-
-	/*==================================================
-		固有機能
-	==================================================*/
 
 	/* ページトップボタン 表示制御
 	----------------------------------------*/
@@ -46,6 +45,118 @@
 	/*==================================================
 		機能本体
 	==================================================*/
+	
+	/**
+	 * ハンバーガーメニュー
+	 * */
+
+	function toggleSpmenu() {
+        const root = DOC.getElementById('str-header');
+        const btn = DOC.getElementById('spmenu-btn');
+        const contentWrap = DOC.getElementById('global-nav');
+        const content = DOC.getElementById('global-nav-list');
+        const focusable = root.querySelectorAll('a, button');
+        const FOCUS_CONTROL_CLASS = 'spmenu-focus-control';
+        const SLIDEIN_CLASS_NAME = 'is-slidein';
+        const OPEN_CLASS_NAME = 'is-open';
+        const SLIDEOUT_CLASS_NAME = 'is-slideout';
+
+        const firstFocus = DOC.createElement('div');
+        const lastFocus = DOC.createElement('div');
+        var isOpen = false;
+
+        const resizeEvent = function () {
+            if (!page.isSP) {
+                menuClose();
+            }
+        };
+
+        const menuOpen = function () {
+            // focus制御検知要素をfocus可能にする
+            firstFocus.setAttribute('tabindex', '0');
+            lastFocus.setAttribute('tabindex', '0');
+
+            root.classList.add(OPEN_CLASS_NAME);
+			contentWrap.classList.add(SLIDEIN_CLASS_NAME);
+            btn.setAttribute('aria-expanded', 'true');
+            isOpen = true;
+
+            window.addEventListener('resize', resizeEvent);
+        };
+
+        var menuClose = function () {
+            firstFocus.removeAttribute('tabindex');
+            lastFocus.removeAttribute('tabindex');
+            // root.classList.remove(OPEN_CLASS_NAME);
+			contentWrap.classList.add(SLIDEOUT_CLASS_NAME);
+            btn.setAttribute('aria-expanded', 'false');
+            isOpen = false;
+
+            window.removeEventListener('resize', resizeEvent);
+        };
+
+        // focus制御検知要素を追加
+        firstFocus.classList.add(FOCUS_CONTROL_CLASS);
+        lastFocus.classList.add(FOCUS_CONTROL_CLASS);
+        root.insertBefore(firstFocus, root.firstChild);
+        root.appendChild(lastFocus);
+
+        btn.addEventListener('click', function () {
+            if (isOpen) {
+                menuClose();
+            } else {
+                menuOpen();
+            }
+        });
+
+		root.querySelectorAll('a[href^="#"]').forEach((elm) => {
+			elm.addEventListener('click', function () {
+                menuClose();
+			});
+		});
+
+		contentWrap.addEventListener('animationend', function () {
+			if(isOpen) {
+				contentWrap.classList.remove(SLIDEIN_CLASS_NAME);
+				// this.classList.add(SHOW_CLASS_NAME);
+			}else{
+				contentWrap.classList.remove(SLIDEOUT_CLASS_NAME);
+				root.classList.remove(OPEN_CLASS_NAME);
+			}
+        });
+
+        content.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // focus制御（逆順）
+        firstFocus.addEventListener('focus', function () {
+            var i = focusable.length - 1;
+
+            // メニュー内のfocus可能要素に対し、正しくfocus移動するまで focus() する
+            for (i; i >= 0; i--) {
+                focusable[i].focus();
+
+                if (DOC.activeElement !== this) {
+                    return;
+                }
+            }
+        });
+
+        // focus制御（正順）
+        lastFocus.addEventListener('focus', function () {
+            var i = 0;
+
+            // メニュー内のfocus可能要素に対し、正しくfocus移動するまで focus() する
+            for (i; i < focusable.length; i++) {
+                focusable[i].focus();
+
+                if (DOC.activeElement !== this) {
+                    return;
+                }
+            }
+        });
+    };
 
 	/**
 	 * スムーススクロール
@@ -155,129 +266,13 @@
 			return -c * ((t = t / d - 1) * t * t * t - 1) + b;
 		}
 	}
-	
-	/**
-	 * ハンバーガーメニュー
-	 *
-	 * @param {string} trgSlc 対象要素（アンカー）を収集するセレクター文字列
-	 * @param {integer} opt.duration アニメーションに掛かる時間（ミリ秒）
-	 * */
-
-	function toggleSpmenu(trgSlc, opt) {
-        var root = DOC.getElementById('hamburger-menu');
-        var btn = DOC.getElementById('spmenu-btn');
-        var contentWrap = DOC.getElementById('hamburger-menu-content-wrap');
-        var content = DOC.getElementById('hamburger-menu-content');
-        var body = DOC.body;
-        var focusable = root.querySelectorAll('a, area, input, select, textarea, button, [tabindex]');
-        var FOCUS_CONTROL_CLASS = 'js-hamburger-menu-focus-control';
-        var FIXED_CLASS = 'is-fixed';
-        var OPEN_CLASS = 'is-open';
-
-        var firstFocus = DOC.createElement('div');
-        var lastFocus = DOC.createElement('div');
-        var scrollTop = 0;
-        var scrollbarWidth = 0;
-        var isOpen = false;
-
-        var resizeEvent = function () {
-            if (!isSP.matches) {
-                menuClose();
-            }
-        };
-
-        var menuOpen = function () {
-            // scrollTop値をセット
-            scrollTop = window.pageYOffset || DOC.documentElement.scrollTop;
-            body.style.top = (scrollTop * -1) + 'px';
-
-            // スクロールバー幅のpadding-right値をセット
-            scrollbarWidth = window.innerWidth - body.clientWidth;
-            body.style.paddingRight = scrollbarWidth + 'px';
-
-            // focus制御検知要素をfocus可能にする
-            firstFocus.setAttribute('tabindex', '0');
-            lastFocus.setAttribute('tabindex', '0');
-
-            body.classList.add(FIXED_CLASS);
-            root.classList.add(OPEN_CLASS);
-            btn.setAttribute('aria-expanded', 'true');
-            isOpen = true;
-
-            window.addEventListener('resize', resizeEvent);
-        };
-
-        var menuClose = function () {
-            body.style.top = '0';
-            body.style.paddingRight = '0';
-            firstFocus.removeAttribute('tabindex');
-            lastFocus.removeAttribute('tabindex');
-            body.classList.remove(FIXED_CLASS);
-            root.classList.remove(OPEN_CLASS);
-            btn.setAttribute('aria-expanded', 'false');
-            scrollTo(0, scrollTop);
-            isOpen = false;
-
-            window.removeEventListener('resize', resizeEvent);
-        };
-
-        // オーバーレイとfocus制御検知要素を追加
-        firstFocus.classList.add(FOCUS_CONTROL_CLASS);
-        lastFocus.classList.add(FOCUS_CONTROL_CLASS);
-        root.insertBefore(firstFocus, root.firstChild);
-        root.appendChild(lastFocus);
-
-        btn.addEventListener('click', function () {
-            if (isOpen) {
-                menuClose();
-            } else {
-                menuOpen();
-            }
-        });
-
-        contentWrap.addEventListener('click', function () {
-            menuClose();
-        });
-
-        content.addEventListener('click', function (e) {
-            e.stopPropagation();
-        });
-
-        // focus制御（逆順）
-        firstFocus.addEventListener('focus', function () {
-            var i = focusable.length - 1;
-
-            // メニュー内のfocus可能要素に対し、正しくfocus移動するまで focus() する
-            for (i; i >= 0; i--) {
-                focusable[i].focus();
-
-                if (DOC.activeElement !== this) {
-                    return;
-                }
-            }
-        });
-
-        // focus制御（正順）
-        lastFocus.addEventListener('focus', function () {
-            var i = 0;
-
-            // メニュー内のfocus可能要素に対し、正しくfocus移動するまで focus() する
-            for (i; i < focusable.length; i++) {
-                focusable[i].focus();
-
-                if (DOC.activeElement !== this) {
-                    return;
-                }
-            }
-        });
-    };
 
 	/**
 	 * ページトップボタン 表示制御
 	 *
 	 * */
 	function fadeTopbtnClosure() {
-		const ROOT_ID_NAME = 'btn-to-top';
+		const ROOT_ID_NAME = 'str-footer';
         const FADEIN_CLASS_NAME = 'is-fadein';
 		const SHOW_CLASS_NAME = 'is-show';
         const FADEOUT_CLASS_NAME = 'is-fadeout';
@@ -287,7 +282,6 @@
 		const rootElm = DOC.getElementById(ROOT_ID_NAME);
 
 		rootElm.addEventListener('animationend', function () {
-			console.log('animationend');
 			if(isShow) {
 				rootElm.classList.remove(FADEIN_CLASS_NAME);
 				this.classList.add(SHOW_CLASS_NAME);
@@ -318,7 +312,6 @@
 
 			if (isShow !== currentIsShow) { // currentIsShow の値が変わったら SHOW_CLASS_NAME の付け外しを行う
 				isShow = currentIsShow;
-				console.log('updateIsShow');
 
 				if (isShow) {
 					rootElm.classList.add('is-fadein');

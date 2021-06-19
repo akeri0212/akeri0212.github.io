@@ -200,7 +200,17 @@ button {
     01-03. Keyframes
 -------------------------------------------------- */
 
-@keyframes FadeIn01 {
+@keyframes SlideIn {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes FadeIn {
   0% {
     opacity: 0;
     transform: translateY(30px);

@@ -7,10 +7,19 @@
     ],
     "rules": {
         "order/properties-alphabetical-order": true,
+        "at-rule-empty-line-before": [
+            "always",
+            {
+                "ignoreAtRules": [
+                    "else"
+                ]
+            }
+        ],
         "at-rule-no-unknown": [
             true,
             {
                 "ignoreAtRules": [
+                    "else",
                     "function",
                     "if",
                     "include",
