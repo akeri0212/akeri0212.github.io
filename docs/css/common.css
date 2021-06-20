@@ -282,7 +282,7 @@ button[disabled] {
 
 @media (max-width: 768px) {
   .str-inner {
-    max-width: 1200px 20px;
+    max-width: 1220px;
     padding: 0 10px;
   }
 }

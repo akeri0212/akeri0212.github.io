@@ -12,7 +12,7 @@
   width: 100%;
 
   @media #{$media-sp} {
-    max-width: $cont-width-max $cont-padding-sp * 2;
+    max-width: $cont-width-max + $cont-padding-sp * 2;
     padding: 0 $cont-padding-sp;
   }
 
